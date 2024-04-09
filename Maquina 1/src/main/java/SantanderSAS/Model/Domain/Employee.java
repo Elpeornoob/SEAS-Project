@@ -1,7 +1,8 @@
 package SantanderSAS.Model.Domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
+import bryan.io.array.Array;
 
 public class Employee extends AbstractPerson implements Serializable {
     private String id;
@@ -11,7 +12,7 @@ public class Employee extends AbstractPerson implements Serializable {
         this.id = "";
     }
 
-    public Employee(String name, String lastName, ArrayList<String> phoneNumbers, String id) {
+    public Employee(String name, String lastName, Array<String> phoneNumbers, String id) {
         super(name, lastName, phoneNumbers);
         this.id = id;
     }

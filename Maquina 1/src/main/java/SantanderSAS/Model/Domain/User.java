@@ -35,5 +35,8 @@ public class User {
         this.person = person;
     }
 
+    public static User getNullUser() {
+        return new User("", "", new AbstractPerson(){});
+      } 
 
 }
