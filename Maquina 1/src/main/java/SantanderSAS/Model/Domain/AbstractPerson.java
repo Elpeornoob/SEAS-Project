@@ -1,14 +1,13 @@
 package SantanderSAS.Model.Domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import bryan.io.array.Array;
 
 public abstract class AbstractPerson implements Serializable {
     protected String name;
     protected String lastName;
-    protected ArrayList<String> phoneNumbers;
+    protected Array<String> phoneNumbers;
 
     public  AbstractPerson(){
         this.name = "N/A";
@@ -18,7 +17,7 @@ public abstract class AbstractPerson implements Serializable {
     public AbstractPerson(String name, String lastName, Array<String> phoneNumbers) {
         this.name = name;
         this.lastName = lastName;
-        this.phoneNumbers = new Array(E[] e);
+        this.phoneNumbers = new Array<>(phoneNumbers);
     }
 
     public String getName() {
@@ -37,11 +36,11 @@ public abstract class AbstractPerson implements Serializable {
         this.lastName = lastName;
     }
 
-    public ArrayList<String> getPhoneNumbers() {
+    public Array<String> getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public void setPhoneNumbers(ArrayList<String> phoneNumbers) {
+    public void setPhoneNumbers(Array<String> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 

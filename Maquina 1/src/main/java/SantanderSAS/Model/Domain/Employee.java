@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import bryan.io.array.Array;
 
+@SuppressWarnings("unused")
 public class Employee extends AbstractPerson implements Serializable {
     private String id;
 
