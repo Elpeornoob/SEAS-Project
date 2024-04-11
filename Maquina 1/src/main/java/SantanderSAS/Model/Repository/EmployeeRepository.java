@@ -5,7 +5,7 @@ import java.io.Serializable;
 import SantanderSAS.Model.Domain.Employee;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
-import bryan.array.Array;
+import bryan.io.array.Array;
 
 public class EmployeeRepository implements Serializable{
     private FileJsonInterface<EmployeeEntity> fileJson;
