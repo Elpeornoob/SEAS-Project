@@ -28,4 +28,48 @@ public class UserRepository implements Serializable{
         }
         return User.getNullUser();
       }
+        public void addUser(User user) {
+            UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
+            UserEntity[] newUserEntities = new UserEntity[userEntities.length + 1];
+            for (int i = 0; i < userEntities.length; i++) {
+            newUserEntities[i] = userEntities[i];
+            }
+            newUserEntities[newUserEntities.length - 1] = new UserEntity(user.getPerson().getID(), user.getUsername(), user.getPassword());
+            fileJson.writeObjects(pathFile, newUserEntities);
+        }
+
+        public void removeUser(User user) {
+            UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
+            UserEntity[] newUserEntities = new UserEntity[userEntities.length - 1];
+            int j = 0;
+            for (int i = 0; i < userEntities.length; i++) {
+            if (!userEntities[i].username.equals(user.getUsername())) {
+                newUserEntities[j] = userEntities[i];
+                j++;
+            }
+            }
+            fileJson.writeObjects(pathFile, newUserEntities);
+        }
+
+        public void editUser(User user) {
+            UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
+            for (int i = 0; i < userEntities.length; i++) {
+            if (userEntities[i].username.equals(user.getUsername())) {
+                userEntities[i] = new UserEntity(user.getPerson().getID(), user.getUsername(), user.getPassword());
+            }
+            }
+            fileJson.writeObjects(pathFile, userEntities);
+        }
+
+        public User[] getUsers() {
+            UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
+            User[] users = new User[userEntities.length];
+            EmployeeRepository employeeRepository = new EmployeeRepository("../../database/employee.json");
+            for (int i = 0; i < userEntities.length; i++) {
+            Employee employee = employeeRepository.getEmployee(userEntities[i].person);
+            users[i] = new User(userEntities[i].username, userEntities[i].password, employee);
+            }
+            return users;
+        }
+
 }

@@ -1,13 +1,13 @@
 package SantanderSAS.Model.Domain;
 
 import java.io.Serializable;
-
-import bryan.io.array.Array;
+import bryan.array.Array;
 
 public abstract class AbstractPerson implements Serializable {
     protected String name;
     protected String lastName;
     protected Array<String> phoneNumbers;
+    protected String ID;
 
     public  AbstractPerson(){
         this.name = "N/A";
@@ -42,6 +42,13 @@ public abstract class AbstractPerson implements Serializable {
 
     public void setPhoneNumbers(Array<String> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
+    }
+
+    public String getID() {
+        return ID;
+    }
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
 }
