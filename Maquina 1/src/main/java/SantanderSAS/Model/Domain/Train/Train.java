@@ -1,4 +1,4 @@
-package SantanderSAS.Model.Domain;
+package SantanderSAS.Model.Domain.Train;
 
 public class Train {
     private String nombre;
