@@ -1,6 +1,6 @@
 package SantanderSAS.View;
 
-import SantanderSAS.Model.Domain.LoginManager;
+import SantanderSAS.Controller.LoginManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

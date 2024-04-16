@@ -1,12 +1,12 @@
 package SantanderSAS.Model;
 
 import SantanderSAS.Model.Messenger.Messenger;
-import SantanderSAS.Model.Domain.LoginManagerSkeleton;
+import SantanderSAS.Controller.LoginManagerSkeleton;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-import SantanderSAS.Model.Domain.LoginManager;
+import SantanderSAS.Controller.LoginManager;
 
 public class SGTTPModel {
     private String ip;

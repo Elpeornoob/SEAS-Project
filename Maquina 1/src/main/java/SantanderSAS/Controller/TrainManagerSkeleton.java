@@ -1,4 +1,6 @@
-package SantanderSAS.Model.Domain;
+package SantanderSAS.Controller;
+
+import SantanderSAS.Model.Domain.Train;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

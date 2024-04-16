@@ -1,11 +1,12 @@
-package SantanderSAS.Model.Domain;
+package SantanderSAS.Controller;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Model.Repository.UserRepository;
 
-public class LoginManager extends UnicastRemoteObject implements LoginManagerSkeleton{
+public class LoginManager extends UnicastRemoteObject implements LoginManagerSkeleton {
     
     private static final long serialVersionUID = 123L; 
 
