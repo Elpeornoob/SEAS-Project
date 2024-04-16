@@ -19,7 +19,7 @@ public class UserRepository implements Serializable{
 
     public User getUser(String username) {
         UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
-        EmployeeRepository employeeRepository = new EmployeeRepository("../../database/employee.json");
+        EmployeeRepository employeeRepository = new EmployeeRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
         for (UserEntity userEntity : userEntities) {
           if (userEntity.username.equals(username)) {
             Employee employee = employeeRepository.getEmployee(userEntity.person);
@@ -28,6 +28,7 @@ public class UserRepository implements Serializable{
         }
         return User.getNullUser();
       }
+
         public void addUser(User user) {
             UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
             UserEntity[] newUserEntities = new UserEntity[userEntities.length + 1];
@@ -64,7 +65,7 @@ public class UserRepository implements Serializable{
         public User[] getUsers() {
             UserEntity[] userEntities = fileJson.getObjects(pathFile, UserEntity[].class);
             User[] users = new User[userEntities.length];
-            EmployeeRepository employeeRepository = new EmployeeRepository("../../database/employee.json");
+            EmployeeRepository employeeRepository = new EmployeeRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
             for (int i = 0; i < userEntities.length; i++) {
             Employee employee = employeeRepository.getEmployee(userEntities[i].person);
             users[i] = new User(userEntities[i].username, userEntities[i].password, employee);

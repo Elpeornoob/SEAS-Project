@@ -1,7 +1,16 @@
-package SantanderSAS.Model.Domain;
+<<<<<<<< HEAD:Maquina 1/src/main/java/SantanderSAS/Model/Domain/Train/TrainManager.java
+package SantanderSAS.Model.Domain.Train;
+========
+package SantanderSAS.Controller;
+>>>>>>>> 0536a787305139f1cf3f6fdc4363820fce30a5f1:Maquina 1/src/main/java/SantanderSAS/Controller/TrainManager.java
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
+<<<<<<<< HEAD:Maquina 1/src/main/java/SantanderSAS/Model/Domain/Train/TrainManager.java
+========
+import SantanderSAS.Model.Domain.Train;
+>>>>>>>> 0536a787305139f1cf3f6fdc4363820fce30a5f1:Maquina 1/src/main/java/SantanderSAS/Controller/TrainManager.java
 import SantanderSAS.Model.Repository.TrainRepository;
 
 public class TrainManager extends UnicastRemoteObject implements TrainManagerSkeleton {

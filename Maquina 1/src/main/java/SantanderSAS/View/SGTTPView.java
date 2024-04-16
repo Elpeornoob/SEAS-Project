@@ -2,7 +2,6 @@ package SantanderSAS.View;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.rmi.RemoteException;
 import java.util.function.UnaryOperator;
 
 import javax.swing.JButton;
@@ -11,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import SantanderSAS.Model.Domain.LoginManager;
 import SantanderSAS.Model.Messenger.Messenger;
 import SantanderSAS.Model.Observer.Observer;
 

@@ -19,7 +19,7 @@ public class EmployeeRepository implements Serializable{
     public Employee getEmployee(String id) {
       EmployeeEntity[] employeeEntities = fileJson.getObjects(pathFile, EmployeeEntity[].class);
       for (EmployeeEntity employeeEntity : employeeEntities) {
-        if (employeeEntity.id.equals(id)) {
+        if (employeeEntity != null && employeeEntity.id != null && employeeEntity.id.equals(id)) {
           return new Employee(
               employeeEntity.names,
               employeeEntity.lastNames,
