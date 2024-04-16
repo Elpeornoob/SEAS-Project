@@ -2,6 +2,7 @@ package SantanderSAS.View;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.rmi.RemoteException;
 import java.util.function.UnaryOperator;
 
 import javax.swing.JButton;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import SantanderSAS.Model.Domain.LoginManager;
 import SantanderSAS.Model.Messenger.Messenger;
 import SantanderSAS.Model.Observer.Observer;
 
@@ -68,5 +70,14 @@ public class SGTTPView extends Observer<Messenger> {
     @Override
     public void update() {
         console.setText("Server Status: " + subject.getMessage());
+    }
+
+    public static void main(String[] args) {
+        try {
+            LoginManager loginManager = new LoginManager();
+            new LoginView(loginManager);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 }
