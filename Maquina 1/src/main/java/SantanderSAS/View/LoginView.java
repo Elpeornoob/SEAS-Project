@@ -52,4 +52,12 @@ public class LoginView extends JFrame {
         pack();
         setVisible(true);
     }
+    public static void main(String[] args) {
+        try {
+            LoginManager loginManager = new LoginManager();
+            new LoginView(loginManager);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }
