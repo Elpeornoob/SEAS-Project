@@ -14,7 +14,7 @@ public class LoginManager extends UnicastRemoteObject implements LoginManagerSke
     }
 
     public boolean login(String username, String password) throws RemoteException {
-        UserRepository userRepository = new UserRepository("../../database/user.json");
+        UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
         User user = userRepository.getUser(username);
         if (user.equals(User.getNullUser())) {
           return false;
