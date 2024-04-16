@@ -1,6 +1,6 @@
 package SantanderSAS.Model.Repository;
 
-import SantanderSAS.Model.Domain.Train.Train;
+import SantanderSAS.Model.Domain.Train;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
