@@ -1,4 +1,4 @@
-package SantanderSAS.View;
+package SantanderSAS.View.Train;
 
 import SantanderSAS.Controller.TrainManager;
 import SantanderSAS.Model.Domain.Train;
@@ -14,6 +14,8 @@ public class TrainManagerView extends JFrame {
     private JButton removeButton;
     private JButton editButton;
     private TrainManager trainManager;
+    private JTable trainTable;
+    private JScrollPane scrollPane;
 
     public TrainManagerView(TrainManager trainManager) {
         this.trainManager = trainManager;
@@ -31,6 +33,16 @@ public class TrainManagerView extends JFrame {
             updateTable();
         });
 
+        removeButton.addActionListener(event -> {
+            new RemoveTrainDialog(this, trainManager).setVisible(true);
+            updateTable();
+        });
+
+        editButton.addActionListener(event -> {
+            new EditTrainDialog(this, trainManager).setVisible(true);
+            updateTable();
+        });
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 1));
         buttonPanel.add(addButton);
@@ -38,6 +50,10 @@ public class TrainManagerView extends JFrame {
         buttonPanel.add(editButton);
 
         add(buttonPanel, BorderLayout.WEST);
+
+        trainTable = new JTable();
+        scrollPane = new JScrollPane(trainTable);
+        add(scrollPane, BorderLayout.CENTER);
 
         updateTable();
 
@@ -59,9 +75,12 @@ public class TrainManagerView extends JFrame {
 
     private void updateTable() {
         Train[] trains = getTrains();
-        JTable trainTable = new JTable(new TrainTableModel(trains));
-        JScrollPane scrollPane = new JScrollPane(trainTable);
+        remove(scrollPane);
+        trainTable = new JTable(new TrainTableModel(trains));
+        scrollPane = new JScrollPane(trainTable);
         add(scrollPane, BorderLayout.CENTER);
+        revalidate();
+        repaint();
     }
 
     private Train[] getTrains() {
