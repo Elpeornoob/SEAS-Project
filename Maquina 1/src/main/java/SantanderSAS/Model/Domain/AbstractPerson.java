@@ -7,7 +7,7 @@ public abstract class AbstractPerson implements Serializable {
     protected String name;
     protected String lastName;
     protected Array<String> phoneNumbers;
-    protected String ID;
+    protected String id;
 
     public  AbstractPerson(){
         this.name = "N/A";
@@ -45,10 +45,16 @@ public abstract class AbstractPerson implements Serializable {
     }
 
     public String getID() {
-        return ID;
-    }
-    public void setID(String ID) {
-        this.ID = ID;
+        return id;
     }
 
+    public void setID(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }
+

@@ -1,8 +1,11 @@
 package SantanderSAS.View.Menu;
 
 import SantanderSAS.Controller.TrainManager;
+import SantanderSAS.Controller.UserManager;
 import SantanderSAS.Model.Repository.TrainRepository;
+import SantanderSAS.Model.Repository.UserRepository;
 import SantanderSAS.View.Train.TrainManagerView;
+import SantanderSAS.View.User.UserManagerView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,8 +42,9 @@ public class Menu extends JFrame {
         });
 
         userManagerButton.addActionListener(event -> {
-            // Aquí debes instanciar y mostrar tu ventana UserManager
-            // Por ejemplo: new UserManagerView().setVisible(true);
+            UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+            UserManager userManager = new UserManager(userRepository);
+            new UserManagerView(userManager).setVisible(true);
         });
 
         add(routeManagerButton);
@@ -55,3 +59,4 @@ public class Menu extends JFrame {
         SwingUtilities.invokeLater(() -> new Menu().setVisible(true));
     }
 }
+

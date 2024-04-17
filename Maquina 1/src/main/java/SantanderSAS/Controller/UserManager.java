@@ -3,22 +3,22 @@ package SantanderSAS.Controller;
 import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Model.Repository.UserRepository;
 
-public class    UserManager {
+public class UserManager {
     private UserRepository userRepository;
 
     public UserManager(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
-    public void AddUser(User user){
+    public void addUser(User user){
         userRepository.addUser(user);
     }
 
-    public void RemoveUser(User user){
+    public void removeUser(User user){
         userRepository.removeUser(user);
     }
 
-    public void EditUser(User user){
+    public void editUser(User user){
         userRepository.editUser(user);
     }
 
@@ -26,7 +26,7 @@ public class    UserManager {
         return userRepository.getUser(username);
     }
 
-    public User[] GetUsers(){
-        return null;
+    public User[] getUsers(){
+        return userRepository.getUsers();
     }
 }
