@@ -1,37 +1,44 @@
 [
-    {
-        "nombre": "Tren1",
-        "identificador": "1",
-        "capacidad_de_carga": 28,
-        "kilometraje": 5000,
-        "tipo": "Mercedes-Benz"
-    },
-    {
-        "nombre": "Tren2",
-        "identificador": "2",
-        "capacidad_de_carga": 32,
-        "kilometraje": 10000,
-        "tipo": "Arnold"
-    },
-    {
-        "nombre": "Tren3",
-        "identificador": "3",
-        "capacidad_de_carga": 15,
-        "kilometraje": 15000,
-        "tipo": "Mercedes-Benz"
-    },
-    {
-        "nombre": "Tren4",
-        "identificador": "4",
-        "capacidad_de_carga": 20,
-        "kilometraje": 20000,
-        "tipo": "Arnold"
-    },
-    {
-        "nombre": "Tren5",
-        "identificador": "5",
-        "capacidad_de_carga": 28,
-        "kilometraje": 25000,
-        "tipo": "Mercedes-Benz"
-    }
+  {
+    "nombre": "Tren1",
+    "identificador": "1",
+    "capacidadDeCarga": 0,
+    "kilometraje": 5000,
+    "tipo": "Mercedes-Benz"
+  },
+  {
+    "nombre": "Tren2",
+    "identificador": "2",
+    "capacidadDeCarga": 0,
+    "kilometraje": 10000,
+    "tipo": "Arnold"
+  },
+  {
+    "nombre": "Tren3",
+    "identificador": "3",
+    "capacidadDeCarga": 0,
+    "kilometraje": 15000,
+    "tipo": "Mercedes-Benz"
+  },
+  {
+    "nombre": "Tren4",
+    "identificador": "4",
+    "capacidadDeCarga": 0,
+    "kilometraje": 20000,
+    "tipo": "Arnold"
+  },
+  {
+    "nombre": "Tren5",
+    "identificador": "5",
+    "capacidadDeCarga": 0,
+    "kilometraje": 25000,
+    "tipo": "Mercedes-Benz"
+  },
+  {
+    "nombre": "Gian",
+    "identificador": "1",
+    "capacidadDeCarga": 20,
+    "kilometraje": 10,
+    "tipo": "Arnold"
+  }
 ]
