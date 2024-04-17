@@ -1,4 +1,4 @@
-package SantanderSAS.View;
+package SantanderSAS.View.Login;
 
 import SantanderSAS.Controller.LoginManager;
 
