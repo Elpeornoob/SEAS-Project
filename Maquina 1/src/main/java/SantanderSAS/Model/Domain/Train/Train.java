@@ -1,4 +1,4 @@
-package SantanderSAS.Model.Domain;
+package SantanderSAS.Model.Domain.Train;
 
 public class Train {
     private String nombre;
@@ -15,9 +15,15 @@ public class Train {
         this.tipo = tipo;
     }
 
+    public Train(){
+        
+    }
+
+
     public String getNombre() {
         return nombre;
     }
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

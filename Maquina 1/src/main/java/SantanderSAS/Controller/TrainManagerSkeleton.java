@@ -1,9 +1,9 @@
 package SantanderSAS.Controller;
 
-import SantanderSAS.Model.Domain.Train;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import SantanderSAS.Model.Domain.Train.Train;
 
 public interface TrainManagerSkeleton extends Remote {
     void addTrain(Train train) throws RemoteException;

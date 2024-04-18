@@ -1,6 +1,6 @@
 package SantanderSAS.Model.Repository;
 
-import SantanderSAS.Model.Domain.Train;
+import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
@@ -14,25 +14,39 @@ public class TrainRepository {
         this.fileJson = FileJsonAdapter.getInstance();
     }
 
-    public void addTrain(Train train) {
-        TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
-        TrainEntity[] newTrainEntities = new TrainEntity[trainEntities.length + 1];
-        System.arraycopy(trainEntities, 0, newTrainEntities, 0, trainEntities.length);
-        newTrainEntities[newTrainEntities.length - 1] = new TrainEntity(train.getNombre(), train.getIdentificador(), train.getCapacidadDeCarga(), train.getKilometraje(), train.getTipo());
-        fileJson.writeObjects(pathFile, newTrainEntities);
+    public boolean addTrain(Train train) {
+        try {
+            TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
+            TrainEntity[] newTrainEntities = new TrainEntity[trainEntities.length + 1];
+            System.arraycopy(trainEntities, 0, newTrainEntities, 0, trainEntities.length);
+            newTrainEntities[newTrainEntities.length - 1] = new TrainEntity(train.getNombre(), train.getIdentificador(), train.getCapacidadDeCarga(), train.getKilometraje(), train.getTipo());
+            fileJson.writeObjects(pathFile, newTrainEntities);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        
     }
 
-    public void removeTrain(String identificador) {
-        TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
-        TrainEntity[] newTrainEntities = new TrainEntity[trainEntities.length - 1];
-        int j = 0;
-        for (TrainEntity trainEntity : trainEntities) {
-            if (!trainEntity.identificador.equals(identificador)) {
-                newTrainEntities[j] = trainEntity;
-                j++;
+    public boolean removeTrain(String identificador) {
+        try {
+            TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
+            TrainEntity[] newTrainEntities = new TrainEntity[trainEntities.length - 1];
+            int j = 0;
+            for (TrainEntity trainEntity : trainEntities) {
+                if (!trainEntity.identificador.equals(identificador)) {
+                    newTrainEntities[j] = trainEntity;
+                    j++;
+                }
             }
+            fileJson.writeObjects(pathFile, newTrainEntities);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        fileJson.writeObjects(pathFile, newTrainEntities);
+        
     }
 
     public void editTrain(Train train) {

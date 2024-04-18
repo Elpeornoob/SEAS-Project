@@ -14,7 +14,7 @@ public class SGTTPClient {
     
     public static void main(String[] args) {
         Properties config = new Properties();
-        try (FileInputStream fin = new FileInputStream(new File("/home/lestharkin/Projects/Workspaces/edu/ds/sgttp_client/config.properties"))) {
+        try (FileInputStream fin = new FileInputStream(new File("SEAS-Project/sgttp_cliente/config.properties"))) {
             config.load(fin);
             SGTTPClientModel model = new SGTTPClientModel(
                     (String) config.get("IP"),

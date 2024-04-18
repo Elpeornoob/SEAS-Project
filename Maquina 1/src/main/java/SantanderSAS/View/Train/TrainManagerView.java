@@ -1,7 +1,7 @@
 package SantanderSAS.View.Train;
 
 import SantanderSAS.Controller.TrainManager;
-import SantanderSAS.Model.Domain.Train;
+import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Model.Repository.TrainRepository;
 
 import javax.swing.*;
@@ -134,7 +134,7 @@ public class TrainManagerView extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            TrainRepository trainRepository = new TrainRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
+            TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
             TrainManager trainManager = null;
             try {
                 trainManager = new TrainManager(trainRepository);

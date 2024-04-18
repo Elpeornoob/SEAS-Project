@@ -3,7 +3,7 @@ package SantanderSAS.Controller;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import SantanderSAS.Model.Domain.Train;
+import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Model.Repository.TrainRepository;
 
 public class TrainManager extends UnicastRemoteObject implements TrainManagerSkeleton {
@@ -34,4 +34,5 @@ public class TrainManager extends UnicastRemoteObject implements TrainManagerSke
     public Train[] getTrains() throws RemoteException {
         return trainRepository.getTrains();
     }
+
 }
