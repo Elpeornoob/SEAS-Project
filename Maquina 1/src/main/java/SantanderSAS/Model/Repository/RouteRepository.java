@@ -39,4 +39,12 @@ public class RouteRepository {
     public Map<String, List<Route>> getRoutes() {
         return routes;
     }
+
+    public List<Route> getAllRoutes() {
+        List<Route> allRoutes = new ArrayList<>();
+        for (List<Route> routeList : routes.values()) {
+            allRoutes.addAll(routeList);
+        }
+        return allRoutes;
+    }
 }
