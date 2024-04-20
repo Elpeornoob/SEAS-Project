@@ -1,15 +1,22 @@
 package SantanderSAS.Model.Repository;
 
 import java.io.Serializable;
+import bryan.array.Array;
 
 public class UserEntity implements Serializable{
-    String person;
+    String id;
     String username;
     String password;
+    String name;
+    String lastName;
+    Array<String> phoneNumbers;
 
-    public UserEntity(String person, String username, String password) {
-        this.person = person;
+    public UserEntity(String id, String username, String password, String name, String lastName, Array<String> phoneNumbers) {
+        this.id = id;
         this.username = username;
         this.password = password;
+        this.name = name;
+        this.lastName = lastName;
+        this.phoneNumbers = phoneNumbers;
     }
 }

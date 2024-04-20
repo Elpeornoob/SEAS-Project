@@ -1,14 +1,30 @@
 package SantanderSAS.Model.Domain;
 
+import bryan.array.Array;
+
 public class User {
+    private String ID;
     private String username;
     private String password;
-    private AbstractPerson person;
+    private String name;
+    private String lastName;
+    private Array<String> phoneNumbers;
 
-    public User(String username, String password, AbstractPerson person) {
+    public User(String ID, String username, String password, String name, String lastName, Array<String> phoneNumbers) {
+        this.ID = ID;
         this.username = username;
         this.password = password;
-        this.person = person;
+        this.name = name;
+        this.lastName = lastName;
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getUsername() {
@@ -27,16 +43,27 @@ public class User {
         this.password = password;
     }
 
-    public AbstractPerson getPerson() {
-        return person;
+    public String getName() {
+        return name;
     }
 
-    public void setPerson(AbstractPerson person) {
-        this.person = person;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static User getNullUser() {
-        return new User("", "", new AbstractPerson(){});
-      } 
+    public String getLastName() {
+        return lastName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Array<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(Array<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
 }

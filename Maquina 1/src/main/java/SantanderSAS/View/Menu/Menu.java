@@ -26,8 +26,6 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
-            // Aquí debes instanciar y mostrar tu ventana RouteManager
-            // Por ejemplo: new RouteManagerView().setVisible(true);
         });
 
         trainManagerButton.addActionListener(event -> {
@@ -42,9 +40,6 @@ public class Menu extends JFrame {
         });
 
         userManagerButton.addActionListener(event -> {
-            UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-            UserManager userManager = new UserManager(userRepository);
-            new UserManagerView(userManager).setVisible(true);
         });
 
         add(routeManagerButton);
@@ -59,4 +54,3 @@ public class Menu extends JFrame {
         SwingUtilities.invokeLater(() -> new Menu().setVisible(true));
     }
 }
-
