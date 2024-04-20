@@ -1,5 +1,7 @@
 package SantanderSAS.Model.Domain;
 
+import java.util.Objects;
+
 public class Route {
     private String start;
     private String end;
@@ -33,5 +35,18 @@ public class Route {
 
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Route route = (Route) o;
+        return start.equals(route.start) && end.equals(route.end);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, end);
     }
 }
