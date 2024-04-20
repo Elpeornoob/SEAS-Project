@@ -1,11 +1,9 @@
 package SantanderSAS.View.Menu;
 
 import SantanderSAS.Controller.TrainManager;
-import SantanderSAS.Controller.UserManager;
 import SantanderSAS.Model.Repository.TrainRepository;
-import SantanderSAS.Model.Repository.UserRepository;
 import SantanderSAS.View.Train.TrainManagerView;
-import SantanderSAS.View.User.UserManagerView;
+
 
 import javax.swing.*;
 import java.awt.*;

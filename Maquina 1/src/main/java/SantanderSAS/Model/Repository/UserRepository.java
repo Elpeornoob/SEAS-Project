@@ -33,27 +33,45 @@ public class UserRepository implements Serializable {
         fileJson.writeObjects(pathFile, newUsers);
     }
 
-    public void removeUser(User user) {
-        User[] users = fileJson.getObjects(pathFile, User[].class);
-        User[] newUsers = new User[users.length - 1];
-        int j = 0;
-        for (User u : users) {
-            if (!u.getUsername().equals(user.getUsername())) {
-                newUsers[j++] = u;
-            }
+    public User getUserById(String id) {
+    User[] users = fileJson.getObjects(pathFile, User[].class);
+    for (User user : users) {
+        if (user.getID().equals(id)) {
+            return user;
         }
-        fileJson.writeObjects(pathFile, newUsers);
+    }
+    return null; // or return a default User
     }
 
-    public void editUser(User user) {
-        User[] users = fileJson.getObjects(pathFile, User[].class);
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(user.getUsername())) {
-                users[i] = user;
-            }
+    public void removeUser(User user) {
+    User[] users = fileJson.getObjects(pathFile, User[].class);
+    int index = -1;
+    for (int i = 0; i < users.length; i++) {
+        if (users[i].getID().equals(user.getID())) {
+            index = i;
+            break;
         }
-        fileJson.writeObjects(pathFile, users);
     }
+    if (index != -1) {
+        User[] newUsers = new User[users.length - 1];
+        System.arraycopy(users, 0, newUsers, 0, index);
+        System.arraycopy(users, index + 1, newUsers, index, users.length - index - 1);
+        fileJson.writeObjects(pathFile, newUsers);
+    } else {
+        System.out.println("User not found: " + user.getID());
+    }
+}
+
+    public void editUser(User user) {
+    User[] users = fileJson.getObjects(pathFile, User[].class);
+    for (int i = 0; i < users.length; i++) {
+        if (users[i].getID().equals(user.getID())) {
+            users[i] = user;
+            break;
+        }
+    }
+    fileJson.writeObjects(pathFile, users);
+}
 
     public User[] getUsers() {
         return fileJson.getObjects(pathFile, User[].class);

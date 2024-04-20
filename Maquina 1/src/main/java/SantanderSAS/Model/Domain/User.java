@@ -1,6 +1,6 @@
 package SantanderSAS.Model.Domain;
 
-import bryan.array.Array;
+import java.util.List;
 
 public class User {
     private String ID;
@@ -8,9 +8,9 @@ public class User {
     private String password;
     private String name;
     private String lastName;
-    private Array<String> phoneNumbers;
+    private List<String> phoneNumbers;
 
-    public User(String ID, String username, String password, String name, String lastName, Array<String> phoneNumbers) {
+    public User(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers) {
         this.ID = ID;
         this.username = username;
         this.password = password;
@@ -59,11 +59,15 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Array<String> getPhoneNumbers() {
+    public List<String> getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public void setPhoneNumbers(Array<String> phoneNumbers) {
+    public void setPhoneNumbers(List<String> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
+    }
+
+    public static User getNullUser() {
+        return new User(null, null, null, null, null, null);
     }
 }

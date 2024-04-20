@@ -46,6 +46,4 @@ public class TrainManagerPrueba extends UnicastRemoteObject implements TrainMana
         return trainRepository.getTrains();
     }
 
-    
-    
 }
