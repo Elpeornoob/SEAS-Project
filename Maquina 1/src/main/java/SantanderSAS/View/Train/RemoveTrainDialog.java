@@ -7,8 +7,8 @@ import java.awt.*;
 import java.rmi.RemoteException;
 
 public class RemoveTrainDialog extends JDialog {
-    private JTextField identifierField;
-    private JButton removeButton;
+    private final JTextField identifierField;
+    private final JButton removeButton;
 
     public RemoveTrainDialog(Frame owner, TrainManager trainManager) {
         super(owner, "Remove Train", true);

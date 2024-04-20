@@ -1,10 +1,10 @@
 package SantanderSAS.Model.Domain.Wagon;
 
 public class FirtPeopleWagon extends Wagon {
-    private int allCapacityPeople;
-    private int premiunSeats;
-    private int executiveSeats;
-    private int standardSeats;
+    private final int allCapacityPeople;
+    private final int premiunSeats;
+    private final int executiveSeats;
+    private final int standardSeats;
 
     public FirtPeopleWagon(String idWagon) {
         super(idWagon);

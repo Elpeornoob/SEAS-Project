@@ -6,8 +6,8 @@ import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
 public class TrainRepository {
 
-    private FileJsonInterface<TrainEntity> fileJson;
-    private String pathFile;
+    private final FileJsonInterface<TrainEntity> fileJson;
+    private final String pathFile;
 
     public TrainRepository(String pathFile) {
         this.pathFile = pathFile;

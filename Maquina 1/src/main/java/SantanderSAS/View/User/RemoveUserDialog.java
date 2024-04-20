@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RemoveUserDialog extends JDialog {
-    private UserManager userManager;
-    private JTextField idField;
+    private final UserManager userManager;
+    private final JTextField idField;
 
     public RemoveUserDialog(JFrame parent, UserManager userManager) {
         super(parent, "Remove User", true);

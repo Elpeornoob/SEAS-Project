@@ -4,7 +4,7 @@ import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Model.Repository.UserRepository;
 
 public class UserManager {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserManager(UserRepository userRepository){
         this.userRepository = userRepository;

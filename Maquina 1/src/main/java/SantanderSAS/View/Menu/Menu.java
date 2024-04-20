@@ -1,8 +1,11 @@
 package SantanderSAS.View.Menu;
 
 import SantanderSAS.Controller.TrainManager;
+import SantanderSAS.Controller.UserManager;
 import SantanderSAS.Model.Repository.TrainRepository;
+import SantanderSAS.Model.Repository.UserRepository;
 import SantanderSAS.View.Train.TrainManagerView;
+import SantanderSAS.View.User.UserManagerView;
 
 
 import javax.swing.*;
@@ -10,9 +13,9 @@ import java.awt.*;
 import java.rmi.RemoteException;
 
 public class Menu extends JFrame {
-    private JButton routeManagerButton;
-    private JButton trainManagerButton;
-    private JButton userManagerButton;
+    private final JButton routeManagerButton;
+    private final JButton trainManagerButton;
+    private final JButton userManagerButton;
 
     public Menu() {
         setTitle("Menu");
@@ -38,6 +41,9 @@ public class Menu extends JFrame {
         });
 
         userManagerButton.addActionListener(event -> {
+        UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+        UserManager userManager = new UserManager(userRepository);
+        new UserManagerView(userManager).setVisible(true);
         });
 
         add(routeManagerButton);

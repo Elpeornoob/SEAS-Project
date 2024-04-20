@@ -9,10 +9,10 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 
 public class UserManagerView extends JFrame {
-    private JButton addButton;
-    private JButton removeButton;
-    private JButton editButton;
-    private UserManager userManager;
+    private final JButton addButton;
+    private final JButton removeButton;
+    private final JButton editButton;
+    private final UserManager userManager;
     private JTable userTable;
     private JScrollPane scrollPane;
 

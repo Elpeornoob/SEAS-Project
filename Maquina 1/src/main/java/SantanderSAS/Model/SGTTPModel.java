@@ -9,11 +9,11 @@ import java.rmi.registry.LocateRegistry;
 import SantanderSAS.Controller.LoginManager;
 
 public class SGTTPModel {
-    private String ip;
-    private String port;
-    private String serviceName;
-    private String uri;
-    private Messenger messenger;
+    private final String ip;
+    private final String port;
+    private final String serviceName;
+    private final String uri;
+    private final Messenger messenger;
 
     public SGTTPModel(String ip, String port, String serviceName) {
         this.ip = ip;

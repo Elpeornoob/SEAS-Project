@@ -14,11 +14,11 @@ import SantanderSAS.Model.Messenger.Messenger;
 import SantanderSAS.Model.Observer.Observer;
 
 public class SGTTPView extends Observer<Messenger> {
-    private JFrame frame;
-    private JButton button;
-    private JPanel panelButton;
-    private JPanel panelConsole;
-    private JLabel console;
+    private final JFrame frame;
+    private final JButton button;
+    private final JPanel panelButton;
+    private final JPanel panelConsole;
+    private final JLabel console;
 
     public SGTTPView(String title, Messenger messenger) {
         super(messenger);

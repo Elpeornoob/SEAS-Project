@@ -8,7 +8,7 @@ import SantanderSAS.Model.Repository.TrainRepository;
 
 public class TrainManager extends UnicastRemoteObject implements TrainManagerSkeleton {
     private static final long serialVersionUID = 123L;
-    private TrainRepository trainRepository;
+    private final TrainRepository trainRepository;
 
     public TrainManager(TrainRepository trainRepository) throws RemoteException {
         super();

@@ -4,8 +4,8 @@ import SantanderSAS.Model.SGTTPModel;
 import SantanderSAS.View.SGTTPView;
 
 public class SGTTPController {
-    private SGTTPModel model;
-    private  SGTTPView view;
+    private final SGTTPModel model;
+    private final SGTTPView view;
 
     public SGTTPController(SGTTPModel model, SGTTPView view) {
         this.model = model;

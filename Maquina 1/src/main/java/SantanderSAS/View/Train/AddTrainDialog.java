@@ -8,12 +8,12 @@ import java.awt.*;
 import java.rmi.RemoteException;
 
 public class AddTrainDialog extends JDialog {
-    private JTextField nameField;
-    private JTextField identifierField;
-    private JTextField capacityField;
-    private JTextField mileageField;
-    private JTextField typeField;
-    private JButton addButton;
+    private final JTextField nameField;
+    private final JTextField identifierField;
+    private final JTextField capacityField;
+    private final JTextField mileageField;
+    private final JTextField typeField;
+    private final JButton addButton;
 
     public AddTrainDialog(Frame owner, TrainManager trainManager) {
         super(owner, "Add Train", true);

@@ -7,7 +7,7 @@ import bryan.array.Array;
 
 public class Messenger implements Serializable{
     private String message;
-    private Array<Observer<Messenger>> observers;
+    private final Array<Observer<Messenger>> observers;
   
     public Messenger(String message) {
       this.message = message;

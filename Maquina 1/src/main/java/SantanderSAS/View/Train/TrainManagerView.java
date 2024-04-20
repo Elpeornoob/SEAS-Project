@@ -10,10 +10,10 @@ import java.awt.*;
 import java.rmi.RemoteException;
 
 public class TrainManagerView extends JFrame {
-    private JButton addButton;
-    private JButton removeButton;
-    private JButton editButton;
-    private TrainManager trainManager;
+    private final JButton addButton;
+    private final JButton removeButton;
+    private final JButton editButton;
+    private final TrainManager trainManager;
     private JTable trainTable;
     private JScrollPane scrollPane;
 

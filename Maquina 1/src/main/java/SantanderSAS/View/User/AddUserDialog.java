@@ -9,13 +9,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AddUserDialog extends JDialog {
-    private UserManager userManager;
-    private JTextField idField;
-    private JTextField usernameField;
-    private JTextField passwordField;
-    private JTextField nameField;
-    private JTextField lastNameField;
-    private JTextField phoneNumbersField;
+    private final UserManager userManager;
+    private final JTextField idField;
+    private final JTextField usernameField;
+    private final JTextField passwordField;
+    private final JTextField nameField;
+    private final JTextField lastNameField;
+    private final JTextField phoneNumbersField;
 
     public AddUserDialog(JFrame parent, UserManager userManager) {
         super(parent, "Add User", true);

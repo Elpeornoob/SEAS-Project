@@ -13,7 +13,7 @@ import com.google.gson.GsonBuilder;
 
     public class FileJsonAdapter<E> implements FileJsonInterface<E> {
         private static FileJsonAdapter<?> instance;
-        private Object fileWriterLock;
+        private final Object fileWriterLock;
 
         private FileJsonAdapter() {
             this.fileWriterLock = new Object();

@@ -7,8 +7,8 @@ import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
 public class UserRepository implements Serializable {
 
-    private FileJsonInterface<User> fileJson;
-    private String pathFile;
+    private final FileJsonInterface<User> fileJson;
+    private final String pathFile;
 
     public UserRepository(String pathFile) {
         this.pathFile = pathFile;
