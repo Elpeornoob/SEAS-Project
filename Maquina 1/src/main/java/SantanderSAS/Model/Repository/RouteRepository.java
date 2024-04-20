@@ -1,6 +1,7 @@
 package SantanderSAS.Model.Repository;
 
 import SantanderSAS.Model.Domain.Graph.GraphEntity;
+import SantanderSAS.Model.Domain.Graph.GraphWrapper;
 import SantanderSAS.Model.Domain.Route;
 import com.google.gson.Gson;
 
@@ -20,9 +21,9 @@ public class RouteRepository {
         this.routes = new HashMap<>();
         this.gson = new Gson();
         try {
-            GraphEntity graphEntity = gson.fromJson(new String(Files.readAllBytes(Paths.get(filePath))), GraphEntity.class);
-            if (graphEntity != null && graphEntity.getRoutes() != null) {
-                this.routes = graphEntity.getRoutes();
+            GraphWrapper graphWrapper = gson.fromJson(new String(Files.readAllBytes(Paths.get(filePath))), GraphWrapper.class);
+            if (graphWrapper != null && graphWrapper.getGraph() != null && graphWrapper.getGraph().getRoutes() != null) {
+                this.routes = graphWrapper.getGraph().getRoutes();
             }
         } catch (IOException e) {
             throw new RuntimeException("Failed to read routes from file", e);
