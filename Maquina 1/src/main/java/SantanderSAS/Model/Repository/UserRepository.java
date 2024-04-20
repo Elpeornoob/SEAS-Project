@@ -76,4 +76,5 @@ public class UserRepository implements Serializable {
     public User[] getUsers() {
         return fileJson.getObjects(pathFile, User[].class);
     }
+
 }

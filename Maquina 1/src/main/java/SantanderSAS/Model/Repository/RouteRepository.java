@@ -1,13 +1,32 @@
 package SantanderSAS.Model.Repository;
 
+import SantanderSAS.Model.Domain.Graph.GraphEntity;
 import SantanderSAS.Model.Domain.Route;
-import java.util.*;
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RouteRepository {
     private Map<String, List<Route>> routes;
+    private Gson gson;
 
-    public RouteRepository() {
+    public RouteRepository(String filePath) {
         this.routes = new HashMap<>();
+        this.gson = new Gson();
+        try {
+            GraphEntity graphEntity = gson.fromJson(new String(Files.readAllBytes(Paths.get(filePath))), GraphEntity.class);
+            if (graphEntity != null && graphEntity.getRoutes() != null) {
+                this.routes = graphEntity.getRoutes();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read routes from file", e);
+        }
     }
 
     public void addRoute(Route route) {

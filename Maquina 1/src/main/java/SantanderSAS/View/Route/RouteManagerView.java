@@ -70,12 +70,7 @@ public class RouteManagerView extends JFrame {
     }
 
     private Route[] getRoutes() {
-        try {
-            return routeManager.getAllRoutes().toArray(new Route[0]);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return new Route[0];
-        }
+        return routeManager.getAllRoutes().toArray(new Route[0]);
     }
 
     private static class RouteTableModel extends AbstractTableModel {

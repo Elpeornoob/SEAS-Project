@@ -1,9 +1,12 @@
 package SantanderSAS.View.Menu;
 
+import SantanderSAS.Controller.RouteManager;
 import SantanderSAS.Controller.TrainManager;
 import SantanderSAS.Controller.UserManager;
+import SantanderSAS.Model.Repository.RouteRepository;
 import SantanderSAS.Model.Repository.TrainRepository;
 import SantanderSAS.Model.Repository.UserRepository;
+import SantanderSAS.View.Route.RouteManagerView;
 import SantanderSAS.View.Train.TrainManagerView;
 import SantanderSAS.View.User.UserManagerView;
 
@@ -27,6 +30,9 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
+        RouteRepository routeRepository = new RouteRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
+        RouteManager routeManager = new RouteManager(routeRepository);
+            new RouteManagerView(routeManager).setVisible(true);
         });
 
         trainManagerButton.addActionListener(event -> {
