@@ -1,0 +1,42 @@
+{
+  "graph": {
+    "routes": {
+      "A": [
+        {
+          "start": "A",
+          "end": "B",
+          "distance": 5
+        },
+        {
+          "start": "A",
+          "end": "C",
+          "distance": 10
+        }
+      ],
+      "B": [
+        {
+          "start": "B",
+          "end": "A",
+          "distance": 5
+        },
+        {
+          "start": "B",
+          "end": "C",
+          "distance": 15
+        }
+      ],
+      "C": [
+        {
+          "start": "C",
+          "end": "A",
+          "distance": 10
+        },
+        {
+          "start": "C",
+          "end": "B",
+          "distance": 15
+        }
+      ]
+    }
+  }
+}

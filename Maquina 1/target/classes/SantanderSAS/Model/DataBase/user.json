@@ -1,22 +1,42 @@
 [
   {
-    "person": "1",
+    "ID": "1",
     "username": "admin1",
-    "password": "admin"
+    "password": "admin",
+    "name": "Admin",
+    "lastName": "One",
+    "phoneNumbers": [
+      "123456789"
+    ]
   },
   {
-    "person": "2",
+    "ID": "2",
     "username": "admin2",
-    "password": "admin"
+    "password": "admin",
+    "name": "Admin",
+    "lastName": "Two",
+    "phoneNumbers": [
+      "123456789"
+    ]
   },
   {
-    "person": "3",
+    "ID": "3",
     "username": "admin3",
-    "password": "admin"
+    "password": "admin",
+    "name": "Admin",
+    "lastName": "Three",
+    "phoneNumbers": [
+      "123456789"
+    ]
   },
   {
-    "person": "4",
+    "ID": "4",
     "username": "admin4",
-    "password": "admin"
+    "password": "admin",
+    "name": "Admin",
+    "lastName": "Four",
+    "phoneNumbers": [
+      "123456789"
+    ]
   }
 ]
