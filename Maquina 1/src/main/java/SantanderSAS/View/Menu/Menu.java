@@ -30,13 +30,13 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
-        RouteRepository routeRepository = new RouteRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
+        RouteRepository routeRepository = new RouteRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
         RouteManager routeManager = new RouteManager(routeRepository);
             new RouteManagerView(routeManager).setVisible(true);
         });
 
         trainManagerButton.addActionListener(event -> {
-        TrainRepository trainRepository = new TrainRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
+        TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
         TrainManager trainManager = null;
         try {
             trainManager = new TrainManager(trainRepository);
@@ -47,7 +47,7 @@ public class Menu extends JFrame {
         });
 
         userManagerButton.addActionListener(event -> {
-        UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+        UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
         UserManager userManager = new UserManager(userRepository);
         new UserManagerView(userManager).setVisible(true);
         });
