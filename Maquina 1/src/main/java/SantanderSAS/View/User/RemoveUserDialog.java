@@ -1,8 +1,9 @@
 package SantanderSAS.View.User;
 
-import SantanderSAS.Controller.UserManager;
-
 import javax.swing.*;
+
+import SantanderSAS.Controller.User.UserManager;
+
 import java.awt.*;
 
 public class RemoveUserDialog extends JDialog {

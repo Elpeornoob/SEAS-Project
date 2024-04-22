@@ -1,6 +1,6 @@
 package SantanderSAS.View.Train;
 
-import SantanderSAS.Controller.TrainManager;
+import SantanderSAS.Controller.Train.TrainManager;
 import SantanderSAS.Model.Domain.Train.Train;
 
 import javax.swing.*;

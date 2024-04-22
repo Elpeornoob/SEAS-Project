@@ -1,4 +1,4 @@
-package SantanderSAS.Controller;
+package SantanderSAS.Controller.Login;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

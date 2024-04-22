@@ -1,6 +1,6 @@
 package SantanderSAS.View.Route;
 
-import SantanderSAS.Controller.RouteManager;
+import SantanderSAS.Controller.Route.RouteManager;
 import SantanderSAS.Model.Domain.Route;
 
 import javax.swing.*;
