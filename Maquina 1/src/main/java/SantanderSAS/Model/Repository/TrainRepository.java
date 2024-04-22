@@ -26,7 +26,7 @@ public class TrainRepository {
             e.printStackTrace();
             return false;
         }
-        
+
     }
 
     public boolean removeTrain(String identificador) {
@@ -46,7 +46,7 @@ public class TrainRepository {
             e.printStackTrace();
             return false;
         }
-        
+
     }
 
     public void editTrain(Train train) {

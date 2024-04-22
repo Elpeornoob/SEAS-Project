@@ -78,7 +78,7 @@ public class UserManagerView extends JFrame {
         private final User[] users;
 
         private static final String[] COLUMN_NAMES = {
-            "ID", "Username", "Password", "Name", "Last Name", "Phone Numbers"
+                "ID", "Username", "Password", "Name", "Last Name", "Phone Numbers"
         };
 
         public UserTableModel(User[] users) {
@@ -104,13 +104,20 @@ public class UserManagerView extends JFrame {
         public Object getValueAt(int rowIndex, int columnIndex) {
             User user = users[rowIndex];
             switch (columnIndex) {
-                case 0: return user.getID();
-                case 1: return user.getUsername();
-                case 2: return user.getPassword();
-                case 3: return user.getName();
-                case 4: return user.getLastName();
-                case 5: return user.getPhoneNumbers();
-                default: return null;
+                case 0:
+                    return user.getID();
+                case 1:
+                    return user.getUsername();
+                case 2:
+                    return user.getPassword();
+                case 3:
+                    return user.getName();
+                case 4:
+                    return user.getLastName();
+                case 5:
+                    return user.getPhoneNumbers();
+                default:
+                    return null;
             }
         }
     }

@@ -1,6 +1,5 @@
 package SantanderSAS.Model.Repository;
 
-import SantanderSAS.Model.Domain.Graph.GraphEntity;
 import SantanderSAS.Model.Domain.Graph.GraphWrapper;
 import SantanderSAS.Model.Domain.Route;
 import com.google.gson.Gson;

@@ -1,9 +1,10 @@
 package SantanderSAS.Model.Repository;
 
-import java.io.Serializable;
 import bryan.array.Array;
 
-public class UserEntity implements Serializable{
+import java.io.Serializable;
+
+public class UserEntity implements Serializable {
     String id;
     String username;
     String password;

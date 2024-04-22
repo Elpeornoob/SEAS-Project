@@ -1,17 +1,11 @@
 package SantanderSAS.View;
 
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.util.function.UnaryOperator;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-
 import SantanderSAS.Model.Messenger.Messenger;
 import SantanderSAS.Model.Observer.Observer;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.function.UnaryOperator;
 
 public class SGTTPView extends Observer<Messenger> {
     private final JFrame frame;
@@ -23,7 +17,7 @@ public class SGTTPView extends Observer<Messenger> {
     public SGTTPView(String title, Messenger messenger) {
         super(messenger);
         subject.attach(this);
-        
+
         frame = new JFrame(title);
         button = new JButton("Start Server");
         panelButton = new JPanel();
@@ -53,10 +47,10 @@ public class SGTTPView extends Observer<Messenger> {
     private void startButton(UnaryOperator<Void> fn) {
         button.addActionListener(event -> fn.apply(null));
         for (int i = 0; i < 6; i++) {
-        if (i == 4) {
-            panelButton.add(button);
-        }
-        panelButton.add(new JLabel());    
+            if (i == 4) {
+                panelButton.add(button);
+            }
+            panelButton.add(new JLabel());
         }
     }
 

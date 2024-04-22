@@ -2,7 +2,7 @@ package SantanderSAS.Model.Repository;
 
 import java.io.Serializable;
 
-public class TrainEntity implements Serializable{
+public class TrainEntity implements Serializable {
     String nombre;
     String identificador;
     int capacidadDeCarga;

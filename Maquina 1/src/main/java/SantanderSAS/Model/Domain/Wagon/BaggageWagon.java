@@ -11,5 +11,5 @@ public class BaggageWagon extends Wagon {
     public int getBaggageCapacity() {
         return baggageCapacity;
     }
-    
+
 }

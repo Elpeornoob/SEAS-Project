@@ -1,16 +1,16 @@
 package SantanderSAS;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import SantanderSAS.Controller.LoginManager;
 import SantanderSAS.Controller.SGTTPController;
 import SantanderSAS.Model.SGTTPModel;
 import SantanderSAS.View.Login.LoginView;
 import SantanderSAS.View.SGTTPView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SGTTP {
     public static void main(String[] args) {

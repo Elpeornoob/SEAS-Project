@@ -5,7 +5,7 @@ public class Baggage {
     private String baggageId;
     private String weight;
     private String wagonId;
-    
+
     public Baggage(String baggageInfo, String baggageId, String weight, String wagonId) {
         this.baggageInfo = baggageInfo;
         this.baggageId = baggageId;
@@ -45,5 +45,5 @@ public class Baggage {
         this.wagonId = wagonId;
     }
 
-    
+
 }

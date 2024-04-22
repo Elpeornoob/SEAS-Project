@@ -6,5 +6,5 @@ public class TrainMercedezBenz extends Train {
         super(nombre, identificador, capacidadDeCarga, kilometraje, "Mercedez-Benz");
         //TODO Auto-generated constructor stub
     }
-    
+
 }

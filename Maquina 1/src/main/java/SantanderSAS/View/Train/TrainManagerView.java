@@ -96,7 +96,7 @@ public class TrainManagerView extends JFrame {
         private final Train[] trains;
 
         private static final String[] COLUMN_NAMES = {
-            "Name", "Identifier", "Capacity", "Mileage", "Type"
+                "Name", "Identifier", "Capacity", "Mileage", "Type"
         };
 
         public TrainTableModel(Train[] trains) {
@@ -122,12 +122,18 @@ public class TrainManagerView extends JFrame {
         public Object getValueAt(int rowIndex, int columnIndex) {
             Train train = trains[rowIndex];
             switch (columnIndex) {
-                case 0: return train.getNombre();
-                case 1: return train.getIdentificador();
-                case 2: return train.getCapacidadDeCarga();
-                case 3: return train.getKilometraje();
-                case 4: return train.getTipo();
-                default: return null;
+                case 0:
+                    return train.getNombre();
+                case 1:
+                    return train.getIdentificador();
+                case 2:
+                    return train.getCapacidadDeCarga();
+                case 3:
+                    return train.getKilometraje();
+                case 4:
+                    return train.getTipo();
+                default:
+                    return null;
             }
         }
     }

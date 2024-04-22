@@ -15,8 +15,8 @@ public class Train {
         this.tipo = tipo;
     }
 
-    public Train(){
-        
+    public Train() {
+
     }
 
 

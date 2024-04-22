@@ -11,7 +11,7 @@ import SantanderSAS.Model.SGTTPClientModel;
 import SantanderSAS.View.SGTTPClientView;
 
 public class SGTTPClient {
-    
+
     public static void main(String[] args) {
         Properties config = new Properties();
         try (FileInputStream fin = new FileInputStream(new File("SEAS-Project/sgttp_cliente/config.properties"))) {

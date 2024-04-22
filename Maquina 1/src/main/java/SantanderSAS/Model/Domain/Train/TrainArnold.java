@@ -6,5 +6,5 @@ public class TrainArnold extends Train {
         super(nombre, identificador, capacidadDeCarga, kilometraje, "Arnold");
         //TODO Auto-generated constructor stub
     }
-    
+
 }

@@ -9,7 +9,7 @@ public class SGTTPClientView {
     BufferedReader br;
     String border = "++++++++++++++++++++++++++++++++++++";
 
-    public SGTTPClientView() { 
+    public SGTTPClientView() {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
@@ -19,14 +19,14 @@ public class SGTTPClientView {
         System.out.println("Login");
         System.out.println(border);
         try {
-        System.out.println("Login:");
-        String login = br.readLine();
-        loginData.add(login);
-        System.out.println("Password:");
-        String password = br.readLine();
-        loginData.add(password);
+            System.out.println("Login:");
+            String login = br.readLine();
+            loginData.add(login);
+            System.out.println("Password:");
+            String password = br.readLine();
+            loginData.add(password);
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
         return loginData;
     }
@@ -39,11 +39,11 @@ public class SGTTPClientView {
 
     public boolean showLoginError() {
         try {
-        System.out.println("Login error");
-        System.out.println("y/n");
-        return br.readLine().equals("y");
+            System.out.println("Login error");
+            System.out.println("y/n");
+            return br.readLine().equals("y");
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
         return false;
     }

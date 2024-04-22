@@ -8,11 +8,11 @@ public class SGTTPClientModel {
     LoginManagerStub loginManger;
     String url;
 
-    public SGTTPClientModel(String ipService, String portServer, String serviceName){
+    public SGTTPClientModel(String ipService, String portServer, String serviceName) {
         this.url = "rmi://" + ipService + ":" + portServer + "/" + serviceName;
     }
 
-    public boolean login(String username, String password){
+    public boolean login(String username, String password) {
         try {
             this.loginManger = (LoginManagerStub) Naming.lookup(url);
             return loginManger.login(username, password);

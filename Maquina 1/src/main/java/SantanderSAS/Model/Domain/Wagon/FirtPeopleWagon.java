@@ -30,6 +30,5 @@ public class FirtPeopleWagon extends Wagon {
         return standardSeats;
     }
 
-    
-    
+
 }

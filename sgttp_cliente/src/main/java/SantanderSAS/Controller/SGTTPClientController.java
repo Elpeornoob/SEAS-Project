@@ -16,13 +16,13 @@ public class SGTTPClientController {
     public void start() {
         boolean op = true;
         do {
-        Array<String> loginData = this.view.showLoginConsole();
-        if (this.model.login(loginData.get(0), loginData.get(1))) {
-            this.view.showMainConsole();
-            op = false;
-        } else {
-            op = this.view.showLoginError();
-        }
+            Array<String> loginData = this.view.showLoginConsole();
+            if (this.model.login(loginData.get(0), loginData.get(1))) {
+                this.view.showMainConsole();
+                op = false;
+            } else {
+                op = this.view.showLoginError();
+            }
         } while (op);
     }
 }

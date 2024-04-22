@@ -14,9 +14,9 @@ public class SGTTPController {
 
     public void start() {
         this.view.initComponent(event -> {
-        this.view.showServerStatus("Server started");
-        this.model.deploy();
-        return null;
+            this.view.showServerStatus("Server started");
+            this.model.deploy();
+            return null;
         });
     }
 

@@ -1,12 +1,11 @@
 package SantanderSAS.Model;
 
-import SantanderSAS.Model.Messenger.Messenger;
+import SantanderSAS.Controller.LoginManager;
 import SantanderSAS.Controller.LoginManagerSkeleton;
+import SantanderSAS.Model.Messenger.Messenger;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-
-import SantanderSAS.Controller.LoginManager;
 
 public class SGTTPModel {
     private final String ip;
@@ -21,19 +20,19 @@ public class SGTTPModel {
         this.serviceName = serviceName;
         // "//192.168.0.1:1802/service"
         this.uri = "//" + this.ip + ":" + this.port + "/" + this.serviceName;
-        this.messenger = new Messenger("Server Status: Stopped"); 
+        this.messenger = new Messenger("Server Status: Stopped");
     }
 
     public boolean deploy() {
         try {
-        System.setProperty("java.rmi.server.hostname", ip);
-        LoginManagerSkeleton loginManagerService = new LoginManager();   
-        LocateRegistry.createRegistry(Integer.parseInt(port));
-        Naming.rebind(uri, loginManagerService);
-        messenger.setMessage("Server Status: Running");
-        return true;
+            System.setProperty("java.rmi.server.hostname", ip);
+            LoginManagerSkeleton loginManagerService = new LoginManager();
+            LocateRegistry.createRegistry(Integer.parseInt(port));
+            Naming.rebind(uri, loginManagerService);
+            messenger.setMessage("Server Status: Running");
+            return true;
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
         return false;
     }

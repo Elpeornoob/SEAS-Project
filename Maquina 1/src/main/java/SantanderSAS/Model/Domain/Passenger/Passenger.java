@@ -6,9 +6,9 @@ public class Passenger {
     private String[] phoneNumbers;
     private TypeIdentification typeIdentification;
     private String currentAddress;
-    
+
     public Passenger(String name, String lastName, String[] phoneNumbers, TypeIdentification typeIdentification,
-            String currentAddress) {
+                     String currentAddress) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
@@ -56,5 +56,5 @@ public class Passenger {
         this.currentAddress = currentAddress;
     }
 
-    
+
 }

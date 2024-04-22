@@ -1,10 +1,10 @@
 package SantanderSAS.Controller;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
-
 import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Model.Repository.TrainRepository;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 public class TrainManager extends UnicastRemoteObject implements TrainManagerSkeleton {
     private static final long serialVersionUID = 123L;

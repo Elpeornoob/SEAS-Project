@@ -10,7 +10,6 @@ import SantanderSAS.View.Route.RouteManagerView;
 import SantanderSAS.View.Train.TrainManagerView;
 import SantanderSAS.View.User.UserManagerView;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.rmi.RemoteException;
@@ -30,26 +29,26 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
-        RouteRepository routeRepository = new RouteRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
-        RouteManager routeManager = new RouteManager(routeRepository);
+            RouteRepository routeRepository = new RouteRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
+            RouteManager routeManager = new RouteManager(routeRepository);
             new RouteManagerView(routeManager).setVisible(true);
         });
 
         trainManagerButton.addActionListener(event -> {
-        TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
-        TrainManager trainManager = null;
-        try {
-            trainManager = new TrainManager(trainRepository);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-        new TrainManagerView(trainManager).setVisible(true);
+            TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
+            TrainManager trainManager = null;
+            try {
+                trainManager = new TrainManager(trainRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            new TrainManagerView(trainManager).setVisible(true);
         });
 
         userManagerButton.addActionListener(event -> {
-        UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-        UserManager userManager = new UserManager(userRepository);
-        new UserManagerView(userManager).setVisible(true);
+            UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+            UserManager userManager = new UserManager(userRepository);
+            new UserManagerView(userManager).setVisible(true);
         });
 
         add(routeManagerButton);

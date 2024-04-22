@@ -2,10 +2,10 @@ package SantanderSAS.View.Route;
 
 import SantanderSAS.Controller.RouteManager;
 import SantanderSAS.Model.Domain.Route;
+
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
-import java.rmi.RemoteException;
 
 public class RouteManagerView extends JFrame {
     private final JButton addButton;
@@ -77,7 +77,7 @@ public class RouteManagerView extends JFrame {
         private final Route[] routes;
 
         private static final String[] COLUMN_NAMES = {
-            "Start", "End", "Distance"
+                "Start", "End", "Distance"
         };
 
         public RouteTableModel(Route[] routes) {
@@ -103,10 +103,14 @@ public class RouteManagerView extends JFrame {
         public Object getValueAt(int rowIndex, int columnIndex) {
             Route route = routes[rowIndex];
             switch (columnIndex) {
-                case 0: return route.getStart();
-                case 1: return route.getEnd();
-                case 2: return route.getDistance();
-                default: return null;
+                case 0:
+                    return route.getStart();
+                case 1:
+                    return route.getEnd();
+                case 2:
+                    return route.getDistance();
+                default:
+                    return null;
             }
         }
     }
