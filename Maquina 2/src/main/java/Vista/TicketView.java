@@ -1,5 +1,6 @@
 package Vista;
 
+import Controller.TicketController;
 import javax.swing.*;
 
 public class TicketView {
@@ -43,5 +44,9 @@ public class TicketView {
         return idField.getText();
     }
 
-    // Add more getter methods for each attribute in your TicketModel
+    public void addPurchaseButton(TicketController controller) {
+        JButton purchaseButton = new JButton("Comprar");
+        purchaseButton.addActionListener(e -> controller.purchaseTicket());
+        // Añade el botón a tu panel o donde quieras que aparezca
+    }
 }

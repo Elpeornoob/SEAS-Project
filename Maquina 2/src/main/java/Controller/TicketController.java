@@ -2,6 +2,13 @@ package Controller;
 
 import Modelo.TicketModel;
 import Vista.TicketView;
+import SantanderSAS.Model.Domain.Route;
+import SantanderSAS.Model.Domain.Passenger.Passenger;
+import SantanderSAS.Model.Domain.Passenger.ContactPerson;
+import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TicketController {
     private TicketModel model;
@@ -15,9 +22,38 @@ public class TicketController {
     public void submitTicket() {
         String id = view.getId();
         model.setId(id);
+    }
 
-        // Add more code here to handle the rest of the attributes
+    public void purchaseTicket() {
+    // Obtain the data from the model
+    String id = model.getId();
+    String dateHourbuy = model.getDateHourbuy();
+    String dateHourDeparture = model.getDateHourDeparture();
+    String dateHourArrival = model.getDateHourArrival();
+    Route route = model.getRoute();
+    Passenger passenger = model.getPassenger();
+    String ticketCategory = model.getTicketCategory();
+    String idTrain = model.getIdTrain();
+    String place = model.getPlace();
+    String ticketCost = model.getTicketCost();
+    ContactPerson contactPerson = model.getContactPerson();
+    Baggage baggage = model.getBaggage();
+    int seat = model.getSeat();
 
-        // Call your server here to handle the other files like Tren, Asiento, Ruta
+    // Create a new TicketModel with the data
+    TicketModel ticket = new TicketModel(id, dateHourbuy, dateHourDeparture, dateHourArrival, route, passenger, ticketCategory, idTrain, place, ticketCost, contactPerson, baggage, seat);
+
+    // Save the ticket (this will depend on how you're handling data persistence)
+    saveTicket();
+}
+
+    private void saveTicket(){
+        // Implementa la lógica para guardar el ticket aquí
+        // Por ejemplo, podrías guardar el ticket en formato JSON en un archivo:
+        try (FileWriter file = new FileWriter("tickets.json")) {
+            file.write(model.toJson());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
