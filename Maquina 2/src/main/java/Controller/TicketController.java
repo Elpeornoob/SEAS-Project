@@ -12,5 +12,12 @@ public class TicketController {
         this.view = view;
     }
 
-    // methods to update controller, set ticket data, update view etc.
+    public void submitTicket() {
+        String id = view.getId();
+        model.setId(id);
+
+        // Add more code here to handle the rest of the attributes
+
+        // Call your server here to handle the other files like Tren, Asiento, Ruta
+    }
 }
