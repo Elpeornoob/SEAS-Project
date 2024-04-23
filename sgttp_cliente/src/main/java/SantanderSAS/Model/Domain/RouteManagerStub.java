@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface RouteManagerStub extends Remote {
-    void addRoute(Route route) throws RemoteException;
+    void addRoute(String start, String end, String distance, String nameRoute) throws RemoteException;
 
-    void removeRoute(Route route) throws RemoteException;
+    void removeRoute(String nameRoute) throws RemoteException;
 
-    void editRoute(Route oldRoute, Route newRoute) throws RemoteException;
+    void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) throws RemoteException;
 
     List<Route> getRoutesFrom(String start) throws RemoteException;
 

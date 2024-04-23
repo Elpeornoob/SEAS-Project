@@ -130,10 +130,10 @@ public class SGTTPClientModel {
         }
     }
 
-    public void addRoute(Route route) {
+    public void addRoute(String start, String end, String distance, String nameRoute) {
         try {
             this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            routeManager.addRoute(route);
+            routeManager.addRoute(start, end, distance, nameRoute);
         } catch (Exception e) {
             e.printStackTrace();
         }

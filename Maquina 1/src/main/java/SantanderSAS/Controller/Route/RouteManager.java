@@ -19,16 +19,16 @@ public class RouteManager  implements RouteManagerSkeleton{
         this.graph = new Graph(routeRepository);
     }
 
-    public void addRoute(Route route) throws RemoteException {
-        routeRepository.addRoute(route);
+    public void addRoute(String start, String end, String distance, String nameRoute) throws RemoteException {
+        routeRepository.addRoute(start,end,distance,nameRoute);
     }
 
-    public void removeRoute(Route route) throws RemoteException {
-        routeRepository.removeRoute(route);
+    public void removeRoute(String nameRoute) throws RemoteException {
+        routeRepository.removeRoute(nameRoute);
     }
 
-    public void editRoute(Route oldRoute, Route newRoute) throws RemoteException {
-        routeRepository.editRoute(oldRoute, newRoute);
+    public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) throws RemoteException {
+        routeRepository.editRoute(nameOldRoute, start, end, distance, nameRoute);
     }
 
     public List<Route> getRoutesFrom(String start) throws RemoteException {

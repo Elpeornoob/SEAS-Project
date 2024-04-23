@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,20 +32,23 @@ public class RouteRepository implements Serializable{
         }
     }
 
-    public void addRoute(String start, String end, String distance) {
-        Route route =  new Route(start, end, Integer.parseInt(distance));
+    public void addRoute(String start, String end, String distance, String nameRoute) {
+        Route route =  new Route(start, end, Integer.parseInt(distance), nameRoute);
         routes.putIfAbsent(route.getStart(), new ArrayList<>());
         routes.get(route.getStart()).add(route);
     }
 
-    public void removeRoute(Route route) {
+    public void removeRoute(String nameRoute) {
+        Route route = getRouteByName(nameRoute);
         List<Route> routeList = routes.get(route.getStart());
         if (routeList != null) {
             routeList.remove(route);
         }
     }
 
-    public void editRoute(Route oldRoute, Route newRoute) {
+    public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) {
+        Route oldRoute = getRouteByName(nameOldRoute);
+        Route newRoute = new Route(start, end, Integer.parseInt(distance), nameRoute);
         List<Route> routeList = routes.get(oldRoute.getStart());
         if (routeList != null) {
             int index = routeList.indexOf(oldRoute);
@@ -53,8 +58,20 @@ public class RouteRepository implements Serializable{
         }
     }
 
-    public List<Route> getRoutesFrom(String start) {
-        return routes.get(start);
+    public List<Map<String, String>> getRoutesFrom(String start) {
+        List<Route> rutas = routes.get(start);
+        Iterator<Route> it = rutas.iterator();
+        List<Map<String, String>> routeslist = new LinkedList<>();
+        while (it.hasNext()) {
+            Route route = it.next();
+            Map<String, String> mapRoutes = new HashMap<String,String>();
+            mapRoutes.put("start", route.getStart());
+            mapRoutes.put("end", route.getEnd());
+            mapRoutes.put("distance", String.valueOf(route.getDistance()));
+            mapRoutes.put("nameroute", route.getNameRute());
+            routeslist.add(mapRoutes);
+        }
+        return routeslist;
     }
 
     public Map<String, List<Route>> getRoutes() {
