@@ -30,7 +30,8 @@ public class RouteRepository implements Serializable{
         }
     }
 
-    public void addRoute(Route route) {
+    public void addRoute(String start, String end, String distance) {
+        Route route =  new Route(start, end, Integer.parseInt(distance));
         routes.putIfAbsent(route.getStart(), new ArrayList<>());
         routes.get(route.getStart()).add(route);
     }

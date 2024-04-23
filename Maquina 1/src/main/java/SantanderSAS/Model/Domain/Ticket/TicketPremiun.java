@@ -7,8 +7,8 @@ public class TicketPremiun extends Ticket {
 
     public TicketPremiun(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route,
                          Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost,
-                         int seat) {
-        super(id, dateHourbuy, dateHourDeparture, dateHourArrival, route, passenger, "Premiun", idTrain, place, "");
+                         String seat) {
+        super(id, dateHourbuy, dateHourDeparture, dateHourArrival, route, passenger, "Premiun", idTrain, place, seat);
         //TODO Auto-generated constructor stub
     }
 
