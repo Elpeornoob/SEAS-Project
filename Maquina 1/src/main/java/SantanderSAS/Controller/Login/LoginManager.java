@@ -13,7 +13,7 @@ public class LoginManager extends UnicastRemoteObject implements LoginManagerSke
 
     public LoginManager() throws RemoteException {
         super();
-        userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+        userRepository = new UserRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
     }
 
     public boolean login(String username, String password) throws RemoteException {
