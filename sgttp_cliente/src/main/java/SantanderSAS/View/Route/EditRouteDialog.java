@@ -1,8 +1,5 @@
 package SantanderSAS.View.Route;
 
-import SantanderSAS.Controller.Route.RouteManager;
-import SantanderSAS.Model.Domain.Route;
-
 import javax.swing.*;
 import java.awt.*;
 import java.rmi.RemoteException;

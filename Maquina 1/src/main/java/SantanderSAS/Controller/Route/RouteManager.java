@@ -42,4 +42,9 @@ public class RouteManager  implements RouteManagerSkeleton{
     public List<Map<String, String>> getAllRoutes() throws RemoteException {
         return routeRepository.getAllRoutes();
     }
+
+    @Override
+    public List<Map<String, String>> getRouteByName(String nameRoute) throws RemoteException {
+        return routeRepository.getRoutesByName(nameRoute);
+    }
 }
