@@ -24,18 +24,22 @@ public class SGTTPModel {
     }
 
     public boolean deploy() {
-        try {
+    try {
+        if (ip != null) {
             System.setProperty("java.rmi.server.hostname", ip);
-            LoginManagerSkeleton loginManagerService = new LoginManager();
-            LocateRegistry.createRegistry(Integer.parseInt(port));
-            Naming.rebind(uri, loginManagerService);
-            messenger.setMessage("Server Status: Running");
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            throw new IllegalArgumentException("IP cannot be null");
         }
-        return false;
+        LoginManagerSkeleton loginManagerService = new LoginManager();
+        LocateRegistry.createRegistry(Integer.parseInt(port));
+        Naming.rebind(uri, loginManagerService);
+        messenger.setMessage("Server Status: Running");
+        return true;
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    return false;
+}
 
     public Messenger getMessenger() {
         return messenger;

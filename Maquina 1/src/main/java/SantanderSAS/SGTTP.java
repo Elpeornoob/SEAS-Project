@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class SGTTP {
     public static void main(String[] args) {
         Properties config = new Properties();
-        try (FileInputStream fin = new FileInputStream(new File("Maquina 1/config.properties"))) {
+        try (FileInputStream fin = new FileInputStream(new File("Maquina 1\\config.properties"))) {
             config.load(fin);
             SGTTPModel model = new SGTTPModel(
                     (String) config.get("IP"),

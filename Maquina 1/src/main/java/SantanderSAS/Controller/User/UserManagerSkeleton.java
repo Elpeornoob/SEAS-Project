@@ -4,6 +4,7 @@ import SantanderSAS.Model.Domain.User;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.Map;
 
 public interface UserManagerSkeleton extends Remote {
     void AddUser(User user) throws RemoteException;
@@ -12,7 +13,7 @@ public interface UserManagerSkeleton extends Remote {
 
     void EditUser(User user) throws RemoteException;
 
-    User getUser(String username) throws RemoteException;
+    Map<String, Object> getUser(String username) throws RemoteException;
 
-    User[] GetUsers() throws RemoteException;
+    Map<String, User> GetUsers() throws RemoteException;
 }
