@@ -7,7 +7,7 @@ import java.util.Map;
 import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Model.Domain.LoginManagerStub;
-import SantanderSAS.Controller.Route.RouteManagerStub;
+import SantanderSAS.Model.Domain.RouteManagerStub;
 import SantanderSAS.Model.Domain.Route;
 import sgttp_cliente.Model.Domain.UserManagerStub;
 import sgttp_cliente.Model.Domain.TrainManagerStub;

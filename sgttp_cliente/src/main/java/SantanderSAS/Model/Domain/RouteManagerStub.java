@@ -1,4 +1,4 @@
-package SantanderSAS.Controller.Route;
+package SantanderSAS.Model.Domain;
 
 import SantanderSAS.Model.Domain.Route;
 
