@@ -139,7 +139,7 @@ public class UserManagerView extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+            UserRepository userRepository = new UserRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
             UserManager userManager = null;
             try {
                 userManager = new UserManager(userRepository);

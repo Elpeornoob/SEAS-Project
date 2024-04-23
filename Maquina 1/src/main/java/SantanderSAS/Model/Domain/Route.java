@@ -1,15 +1,18 @@
 package SantanderSAS.Model.Domain;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
 public class Route {
     private String start;
     private String end;
     private int distance;
-    private int nameRute;
+    @SerializedName("NameRute") // Asegúrate de que el nombre coincide con el del JSON
+    private String nameRute;
+
 
     public Route(){
-        
+
     }
 
     public Route(String start, String end, int distance) {
@@ -18,14 +21,13 @@ public class Route {
         this.distance = distance;
     }
 
-    
-
-    public Route(String start, String end, int distance, int nameRute) {
+    public Route(String start, String end, int distance, String nameRute) { // Cambiado a String
         this.start = start;
         this.end = end;
         this.distance = distance;
         this.nameRute = nameRute;
     }
+
 
     public String getStart() {
         return start;
@@ -64,13 +66,10 @@ public class Route {
         return Objects.hash(start, end);
     }
 
-    public int getNameRute() {
+    public String getNameRute() { // Cambiado a String
         return nameRute;
     }
-
-    public void setNameRute(int nameRuta) {
+    public void setNameRute(String nameRuta) { // Cambiado a String
         this.nameRute = nameRuta;
     }
-
-    
 }
