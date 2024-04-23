@@ -4,13 +4,12 @@ import java.rmi.Naming;
 import java.util.List;
 import java.util.Map;
 
-import SantanderSAS.Model.Domain.Train.Train;
-import SantanderSAS.Model.Domain.User;
-import sgttp_cliente.Model.Domain.LoginManagerStub;
-import SantanderSAS.Controller.Route.RouteManagerStub;
-import SantanderSAS.Model.Domain.Route;
-import sgttp_cliente.Model.Domain.UserManagerStub;
-import sgttp_cliente.Model.Domain.TrainManagerStub;
+import SantanderSAS.Model.Domain.RouteManagerStub;
+import SantanderSAS.Model.Domain.LoginManagerStub;
+import SantanderSAS.Model.Domain.UserManagerStub;
+import SantanderSAS.Model.Domain.TrainManagerStub;
+
+
 
 public class SGTTPClientModel {
     LoginManagerStub loginManager;
@@ -23,17 +22,14 @@ public class SGTTPClientModel {
         this.url = "rmi://" + ipService + ":" + portServer + "/" + serviceName;
     }
 
-    public String login(String username, String password) {
+    public boolean login(String username, String password) {
         try {
             this.loginManager = (LoginManagerStub) Naming.lookup(url);
-            if (loginManager.login(username, password)) {
-                User user = getUser(username);
-                return user.getpermits();
-            }
+            return loginManager.login(username, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     public void addUser(User user) {
