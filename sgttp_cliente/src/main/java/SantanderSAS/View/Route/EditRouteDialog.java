@@ -28,19 +28,20 @@ public class EditRouteDialog extends JDialog {
         editButton = new JButton("Edit");
 
         editButton.addActionListener(event -> {
-            String oldStart = oldStartField.getText();
-            String oldEnd = oldEndField.getText();
-            String newStart = newStartField.getText();
-            String newEnd = newEndField.getText();
-            int newDistance = Integer.parseInt(newDistanceField.getText());
-            String newNameRute = newNameRuteField.getText(); // Obtener el valor del nuevo campo
-            try {
-                routeManager.editRoute(new Route(oldStart, oldEnd, 0), new Route(newStart, newEnd, newDistance, newNameRute)); // Pasar el nuevo valor
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            dispose();
-        });
+        String oldStart = oldStartField.getText();
+        String oldEnd = oldEndField.getText();
+        String newStart = newStartField.getText();
+        String newEnd = newEndField.getText();
+        int newDistance = Integer.parseInt(newDistanceField.getText());
+        String newNameRute = newNameRuteField.getText(); // Obtener el valor del nuevo campo
+        try {
+            String oldRouteName = oldStart + "-" + oldEnd; // Create old route name
+            routeManager.editRoute(oldRouteName, newStart, newEnd, String.valueOf(newDistance), newNameRute); // Pass the new values
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+        dispose();
+    });
 
         setLayout(new GridLayout(7, 2)); // Actualizado a 7 para incluir el nuevo campo
         add(new JLabel("Old Start:"));

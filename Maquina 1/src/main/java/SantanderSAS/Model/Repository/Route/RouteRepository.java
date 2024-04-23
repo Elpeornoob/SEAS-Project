@@ -39,11 +39,20 @@ public class RouteRepository implements Serializable{
     }
 
     public void removeRoute(String nameRoute) {
-        
+        routes.values().forEach(routeList -> routeList.removeIf(route -> route.getNameRute().equals(nameRoute)));
     }
 
     public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) {
-        
+        for (List<Route> routeList : routes.values()) {
+            for (Route route : routeList) {
+                if (route.getNameRute().equals(nameOldRoute)) {
+                    route.setStart(start);
+                    route.setEnd(end);
+                    route.setDistance(Integer.parseInt(distance));
+                    route.setNameRute(nameRoute);
+                }
+            }
+        }
     }
 
     public List<Map<String, String>> getRoutesFrom(String start) {

@@ -15,4 +15,7 @@ public interface RouteManagerStub extends Remote {
 
     Map<String, Integer> calculateShortestPaths(String start) throws RemoteException;
 
+    List<Route> getRoutesFrom(String start) throws RemoteException;
+
+    List<Route> getAllRoutes() throws RemoteException;
 }

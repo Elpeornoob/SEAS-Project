@@ -17,7 +17,7 @@ public class LoginManager extends UnicastRemoteObject implements LoginManagerSke
     }
 
     public boolean login(String username, String password) throws RemoteException {
-        User user = userRepository.getUser(username);
+        User user = (User) userRepository.getUser(username);
         if (user.equals(User.getNullUser())) {
             return false;
         }
@@ -25,7 +25,7 @@ public class LoginManager extends UnicastRemoteObject implements LoginManagerSke
     }
 
     public String getPermits(String username) throws RemoteException {
-        User user = userRepository.getUser(username);
+        User user = (User) userRepository.getUser(username);
         if (user.equals(User.getNullUser())) {
             return null;
         }

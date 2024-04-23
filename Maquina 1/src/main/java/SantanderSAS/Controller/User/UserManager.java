@@ -34,7 +34,7 @@ public class UserManager extends UnicastRemoteObject implements UserManagerSkele
     }
 
     public User getUser(String username) throws RemoteException {
-        return userRepository.getUser(username);
+        return (User) userRepository.getUser(username);
     }
 
     public User[] GetUsers() throws RemoteException {

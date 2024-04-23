@@ -4,11 +4,8 @@ import java.rmi.Naming;
 import java.util.List;
 import java.util.Map;
 
-import SantanderSAS.Model.Domain.RouteManagerStub;
-import SantanderSAS.Model.Domain.LoginManagerStub;
-import SantanderSAS.Model.Domain.UserManagerStub;
-import SantanderSAS.Model.Domain.TrainManagerStub;
-
+import SantanderSAS.Model.Domain.*;
+import SantanderSAS.Model.Domain.Train.Train;
 
 
 public class SGTTPClientModel {

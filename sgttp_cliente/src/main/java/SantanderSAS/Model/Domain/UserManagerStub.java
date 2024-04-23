@@ -11,4 +11,8 @@ public interface UserManagerStub extends Remote {
     void RemoveUser(String id) throws RemoteException;
 
     void EditUser(String id) throws RemoteException;
+
+    User getUser(String username);
+
+    User[] GetUsers();
 }

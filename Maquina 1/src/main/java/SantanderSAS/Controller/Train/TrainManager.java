@@ -28,7 +28,7 @@ public class TrainManager extends UnicastRemoteObject implements TrainManagerSke
     }
 
     public Train getTrain(String identificador) throws RemoteException {
-        return trainRepository.getTrain(identificador);
+        return (Train) trainRepository.getTrain(identificador);
     }
 
     public Train[] getTrains() throws RemoteException {
