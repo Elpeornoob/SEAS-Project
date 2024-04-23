@@ -4,7 +4,9 @@ package SantanderSAS.Model.Repository.Train;
 import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
+import bryan.util.list.List;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,16 +81,21 @@ public class TrainRepository {
         return null;
     }
 
-
-    public Train[] getTrains() {
-        TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
-        if (trainEntities == null) {
-            return new Train[0]; // Devuelve una matriz vacía si no se encontraron trenes
-        }
-        Train[] trains = new Train[trainEntities.length];
-        for (int i = 0; i < trainEntities.length; i++) {
-            trains[i] = new Train(trainEntities[i].nombre, trainEntities[i].identificador, trainEntities[i].capacidadDeCarga, trainEntities[i].kilometraje, trainEntities[i].tipo);
-        }
-        return trains;
+    public List<Map<String, Object>> getTrains() {
+    TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
+    if (trainEntities == null) {
+        return (List<Map<String, Object>>) new ArrayList<>(); // Devuelve una lista vacía si no se encontraron trenes
     }
+    List<Map<String, Object>> trains = (List<Map<String, Object>>) new ArrayList<>();
+    for (TrainEntity trainEntity : trainEntities) {
+        Map<String, Object> trainMap = new HashMap<>();
+        trainMap.put("nombre", trainEntity.nombre);
+        trainMap.put("identificador", trainEntity.identificador);
+        trainMap.put("capacidadDeCarga", trainEntity.capacidadDeCarga);
+        trainMap.put("kilometraje", trainEntity.kilometraje);
+        trainMap.put("tipo", trainEntity.tipo);
+        trains.add(trainMap);
+    }
+    return trains;
+}
 }

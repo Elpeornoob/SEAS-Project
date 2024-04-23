@@ -2,9 +2,11 @@ package SantanderSAS.Controller.Train;
 
 import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Model.Repository.Train.TrainRepository;
+import bryan.util.list.List;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Map;
 
 public class TrainManager extends UnicastRemoteObject implements TrainManagerSkeleton {
     private static final long serialVersionUID = 123L;
@@ -27,11 +29,11 @@ public class TrainManager extends UnicastRemoteObject implements TrainManagerSke
         trainRepository.editTrain(train);
     }
 
-    public Train getTrain(String identificador) throws RemoteException {
-        return (Train) trainRepository.getTrain(identificador);
-    }
+    public List<Map<String, Object>> getTrain(String identificador) throws RemoteException {
+    return (List<Map<String, Object>>) trainRepository.getTrain(identificador);
+}
 
-    public Train[] getTrains() throws RemoteException {
+    public List<Map<String, Object>> getTrains() throws RemoteException {
         return trainRepository.getTrains();
     }
 
