@@ -14,15 +14,16 @@ public class SGTTPClientController {
     }
 
     public void start() {
-        boolean op = true;
+        String loginResult;
         do {
             Array<String> loginData = this.view.showLoginConsole();
-            if (this.model.login(loginData.get(0), loginData.get(1))) {
+            loginResult = this.model.login(loginData.get(0), loginData.get(1));
+            if (loginResult.equals("success")) {
                 this.view.showMainConsole();
-                op = false;
+                loginResult = null;
             } else {
-                op = this.view.showLoginError();
+                this.view.showLoginError(loginResult);
             }
-        } while (op);
+        } while (loginResult != null);
     }
 }

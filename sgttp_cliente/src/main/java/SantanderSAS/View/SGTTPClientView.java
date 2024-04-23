@@ -1,25 +1,16 @@
 package SantanderSAS.View;
 
-import SantanderSAS.Controller.Route.RouteManager;
-import SantanderSAS.Controller.Train.TrainManager;
-import SantanderSAS.Controller.User.UserManager;
-import SantanderSAS.Model.Repository.Route.RouteRepository;
-import SantanderSAS.Model.Repository.Train.TrainRepository;
-import SantanderSAS.Model.Repository.User.UserRepository;
-import SantanderSAS.View.Route.RouteManagerView;
-import SantanderSAS.View.Train.TrainManagerView;
-import SantanderSAS.View.User.UserManagerView;
-
 import javax.swing.*;
 import java.awt.*;
-import java.rmi.RemoteException;
 
-public class Menu extends JFrame {
+import bryan.io.array.Array;
+
+public class SGTTPClientView extends JFrame {
     private final JButton routeManagerButton;
     private final JButton trainManagerButton;
     private final JButton userManagerButton;
 
-    public Menu() {
+    public SGTTPClientView() {
         setTitle("Menu");
         setSize(300, 200);
         setLayout(new GridLayout(3, 1));
@@ -28,41 +19,7 @@ public class Menu extends JFrame {
         trainManagerButton = new JButton("Train Manager");
         userManagerButton = new JButton("User Manager");
 
-        routeManagerButton.addActionListener(event -> {
-            RouteRepository routeRepository = new RouteRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
-            RouteManager routeManager = new RouteManager(routeRepository);
-            try {
-                new RouteManagerView(routeManager).setVisible(true);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        trainManagerButton.addActionListener(event -> {
-            TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
-            TrainManager trainManager = null;
-            try {
-                trainManager = new TrainManager(trainRepository);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            new TrainManagerView(trainManager).setVisible(true);
-        });
-
-        userManagerButton.addActionListener(event -> {
-            UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-            UserManager userManager = null;
-            try {
-                userManager = new UserManager(userRepository);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                new UserManagerView(userManager).setVisible(true);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        // Implement the logic for the action listeners here
 
         add(routeManagerButton);
         add(trainManagerButton);
@@ -72,7 +29,22 @@ public class Menu extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Menu().setVisible(true));
+    public Array<String> showLoginConsole() {
+        // Implement the logic to show the login console and return the login data
+        return null;
+    }
+
+    public boolean login(String username, String password) {
+        // Implement the logic to perform the login and return whether it was successful
+        return false;
+    }
+
+    public void showMainConsole() {
+        // Implement the logic to show the main console
+    }
+
+    public boolean showLoginError(String loginResult) {
+        // Implement the logic to show the login error and return whether to continue the login attempts
+        return false;
     }
 }

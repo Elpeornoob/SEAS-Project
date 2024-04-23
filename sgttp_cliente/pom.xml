@@ -12,5 +12,19 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>SEAS-Project</groupId>
+            <artifactId>Maquina-1</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+    <dependency>
+        <groupId>SEAS-Project</groupId>
+        <artifactId>Maquina-1</artifactId>
+        <version>1.0</version>
+    </dependency>
+    </dependencies>
 
 </project>

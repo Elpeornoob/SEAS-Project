@@ -1,14 +1,21 @@
 package SantanderSAS.Model;
 
 import java.rmi.Naming;
-import SantanderSAS.Model.Domain.LoginManagerStub;
+import java.util.List;
+import java.util.Map;
+
+import SantanderSAS.Model.Domain.Train.Train;
+import SantanderSAS.Model.Domain.User;
+import sgttp_cliente.Model.Domain.LoginManagerStub;
 import SantanderSAS.Controller.Route.RouteManagerStub;
-import SantanderSAS.Model.Domain.Route.Route;
+import SantanderSAS.Model.Domain.Route;
+import sgttp_cliente.Model.Domain.UserManagerStub;
+import sgttp_cliente.Model.Domain.TrainManagerStub;
 
 public class SGTTPClientModel {
     LoginManagerStub loginManager;
     UserManagerStub userManager;
-    TrainManagerSkeleton trainManager;
+    TrainManagerStub trainManager;
     RouteManagerStub routeManager;
     String url;
 
@@ -17,17 +24,17 @@ public class SGTTPClientModel {
     }
 
     public String login(String username, String password) {
-    try {
-        this.loginManager = (LoginManagerStub) Naming.lookup(url);
-        if (loginManager.login(username, password)) {
-            User user = getUser(username);
-            return user.getPermits();
+        try {
+            this.loginManager = (LoginManagerStub) Naming.lookup(url);
+            if (loginManager.login(username, password)) {
+                User user = getUser(username);
+                return user.getpermits();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (Exception e) {
-        e.printStackTrace();
+        return null;
     }
-    return null;
-}
 
     public void addUser(User user) {
         try {
@@ -73,104 +80,110 @@ public class SGTTPClientModel {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-            public void addTrain(Train train) {
-                try {
-                    this.trainManager = (TrainManagerSkeleton) Naming.lookup(url);
-                    trainManager.addTrain(train);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        }
+    }
 
-            public void removeTrain(String identificador) {
-                try {
-                    this.trainManager = (TrainManagerSkeleton) Naming.lookup(url);
-                    trainManager.removeTrain(identificador);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+    public void addTrain(Train train) {
+        try {
+            this.trainManager = (TrainManagerStub) Naming.lookup(url);
+            trainManager.addTrain(train);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            public void editTrain(Train train) {
-                try {
-                    this.trainManager = (TrainManagerSkeleton) Naming.lookup(url);
-                    trainManager.editTrain(train);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+    public void removeTrain(String identificador) {
+        try {
+            this.trainManager = (TrainManagerStub) Naming.lookup(url);
+            trainManager.removeTrain(identificador);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            public Train getTrain(String identificador) {
-                try {
-                    this.trainManager = (TrainManagerSkeleton) Naming.lookup(url);
-                    return trainManager.getTrain(identificador);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
+    public void editTrain(Train train) {
+        try {
+            this.trainManager = (TrainManagerStub) Naming.lookup(url);
+            trainManager.editTrain(train);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            public Train[] getTrains() {
-                try {
-                    this.trainManager = (TrainManagerSkeleton) Naming.lookup(url);
-                    return trainManager.getTrains();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                    public void addRoute(Route route) {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            routeManager.addRoute(route);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
+    public Train getTrain(String identificador) {
+        try {
+            this.trainManager = (TrainManagerStub) Naming.lookup(url);
+            return trainManager.getTrain(identificador);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-                    public void removeRoute(Route route) {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            routeManager.removeRoute(route);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
+    public Train[] getTrains() {
+        try {
+            this.trainManager = (TrainManagerStub) Naming.lookup(url);
+            return trainManager.getTrains();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-                    public void editRoute(Route oldRoute, Route newRoute) {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            routeManager.editRoute(oldRoute, newRoute);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
+    public void addRoute(Route route) {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            routeManager.addRoute(route);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-                    public List<Route> getRoutesFrom(String start) {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            return routeManager.getRoutesFrom(start);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
+    public void removeRoute(Route route) {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            routeManager.removeRoute(route);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-                    public Map<String, Integer> calculateShortestPaths(String start) {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            return routeManager.calculateShortestPaths(start);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
+    public void editRoute(Route oldRoute, Route newRoute) {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            routeManager.editRoute(oldRoute, newRoute);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-                    public List<Route> getAllRoutes() {
-                        try {
-                            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-                            return routeManager.getAllRoutes();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }
+    public List<Route> getRoutesFrom(String start) {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            return routeManager.getRoutesFrom(start);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Map<String, Integer> calculateShortestPaths(String start) {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            return routeManager.calculateShortestPaths(start);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Route> getAllRoutes() {
+        try {
+            this.routeManager = (RouteManagerStub) Naming.lookup(url);
+            return routeManager.getAllRoutes();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}

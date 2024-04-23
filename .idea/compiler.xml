@@ -6,8 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ProyectoSESAS" />
+        <module name="Maquina-1" />
+        <module name="SGTTP-Validator" />
+        <module name="sgttp_cliente" />
+        <module name="TicketBuySGTTP" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Maquina 1" target="21" />
+      <module name="ProyectoSESAS" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

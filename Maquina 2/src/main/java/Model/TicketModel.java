@@ -1,9 +1,8 @@
-package Modelo;
+package Model;
 
 import SantanderSAS.Model.Domain.Route;
 import SantanderSAS.Model.Domain.Passenger.ContactPerson;
 import SantanderSAS.Model.Domain.Passenger.Passenger;
-import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
 import com.google.gson.Gson;
 
 public class TicketModel {
@@ -18,10 +17,9 @@ public class TicketModel {
     private String place;
     private String ticketCost;
     private ContactPerson contactPerson;
-    private Baggage baggage;
     private int seat;
 
-    public TicketModel(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route, Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost, ContactPerson contactPerson, Baggage baggage, int seat) {
+    public TicketModel(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route, Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost, ContactPerson contactPerson, int seat) {
         this.id = id;
         this.dateHourbuy = dateHourbuy;
         this.dateHourDeparture = dateHourDeparture;
@@ -33,7 +31,6 @@ public class TicketModel {
         this.place = place;
         this.ticketCost = ticketCost;
         this.contactPerson = contactPerson;
-        this.baggage = baggage;
         this.seat = seat;
     }
 
@@ -123,14 +120,6 @@ public class TicketModel {
 
     public void setContactPerson(ContactPerson contactPerson) {
         this.contactPerson = contactPerson;
-    }
-
-    public Baggage getBaggage() {
-        return baggage;
-    }
-
-    public void setBaggage(Baggage baggage) {
-        this.baggage = baggage;
     }
 
     public int getSeat() {
