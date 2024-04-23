@@ -25,24 +25,26 @@ public class LoginView extends JFrame {
         // Add action listener to the login button
         loginButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    boolean success = loginManager.login(usernameField.getText(), new String(passwordField.getPassword()));
-                    if (success) {
-                        // Show a success message
-                        JOptionPane.showMessageDialog(null, "Login Exitoso.");
-                        // Close the login window
-                        dispose();
-                        // Open the menu
-                        new Menu().setVisible(true);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Login failed. Please try again.");
-                    }
-                } catch (RemoteException remoteException) {
-                    remoteException.printStackTrace();
-                }
-            }
-        });
+    public void actionPerformed(ActionEvent e) {
+    try {
+        boolean success = loginManager.login(usernameField.getText(), new String(passwordField.getPassword()));
+        if (success) {
+            // Get the user's permissions
+            String permits = loginManager.getPermits(usernameField.getText());
+            // Show a success message
+            JOptionPane.showMessageDialog(null, "Login Exitoso.");
+            // Close the login window
+            dispose();
+            // Open the menu with the user's permissions
+            new Menu(permits).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Login failed. Please try again.");
+        }
+    } catch (RemoteException remoteException) {
+        remoteException.printStackTrace();
+        }
+    }
+});
 
         // Add components to the frame
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));

@@ -18,8 +18,11 @@ public class Menu extends JFrame {
     private final JButton routeManagerButton;
     private final JButton trainManagerButton;
     private final JButton userManagerButton;
+    private final String permits; // Nuevo campo para rastrear el tipo de usuario
 
-    public Menu() {
+    public Menu(String permits) { // Modificado para aceptar el tipo de usuario
+        this.permits = permits;
+
         setTitle("Menu");
         setSize(300, 200);
         setLayout(new GridLayout(3, 1));
@@ -50,17 +53,21 @@ public class Menu extends JFrame {
         });
 
         userManagerButton.addActionListener(event -> {
-            UserRepository userRepository = new UserRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-            UserManager userManager = null;
-            try {
-                userManager = new UserManager(userRepository);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                new UserManagerView(userManager).setVisible(true);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
+            if (permits.equals("Admin")) { // Verifica el tipo de usuario antes de abrir UserManagerView
+                UserRepository userRepository = new UserRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+                UserManager userManager = null;
+                try {
+                    userManager = new UserManager(userRepository);
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    new UserManagerView(userManager).setVisible(true);
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Acceso denegado a la sección de usuario.");
             }
         });
 
@@ -73,6 +80,6 @@ public class Menu extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Menu().setVisible(true));
+        SwingUtilities.invokeLater(() -> new Menu("Admin").setVisible(true)); // Modificado para pasar el tipo de usuario
     }
 }

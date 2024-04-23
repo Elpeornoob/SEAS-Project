@@ -41,4 +41,6 @@ public class UserManager extends UnicastRemoteObject implements UserManagerSkele
         User[] users = userRepository.getUsers();
         return users != null ? users : new User[0];
     }
+
+
 }
