@@ -5,6 +5,7 @@ import SantanderSAS.Model.Domain.Route;
 
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.RemoteException;
 
 public class AddRouteDialog extends JDialog {
     private final JTextField startField;
@@ -24,7 +25,11 @@ public class AddRouteDialog extends JDialog {
             String start = startField.getText();
             String end = endField.getText();
             int distance = Integer.parseInt(distanceField.getText());
-            routeManager.addRoute(new Route(start, end, distance));
+            try {
+                routeManager.addRoute(new Route(start, end, distance));
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             dispose();
         });
 

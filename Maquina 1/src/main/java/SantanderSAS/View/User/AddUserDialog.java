@@ -5,6 +5,7 @@ import SantanderSAS.Model.Domain.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,7 +52,11 @@ public class AddUserDialog extends JDialog {
         addButton.addActionListener(event -> {
             // Add user to the repository
             List<String> phoneNumbers = Arrays.asList(phoneNumbersField.getText().split(","));
-            userManager.AddUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers));
+            try {
+                userManager.AddUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers));
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             dispose();
         });
         add(addButton);

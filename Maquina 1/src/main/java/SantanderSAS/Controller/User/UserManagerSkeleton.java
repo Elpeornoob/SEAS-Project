@@ -5,10 +5,10 @@ import SantanderSAS.Model.Domain.User;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface UserMangaerSkeleton extends Remote {
+public interface UserManagerSkeleton extends Remote {
     void AddUser(User user) throws RemoteException;
 
-    void RemoveUser(User user) throws RemoteException;
+    void RemoveUser(String id) throws RemoteException;
 
     void EditUser(User user) throws RemoteException;
 
