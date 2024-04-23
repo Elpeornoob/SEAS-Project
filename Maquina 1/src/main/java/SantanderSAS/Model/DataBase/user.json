@@ -7,7 +7,8 @@
     "lastName": "One",
     "phoneNumbers": [
       "123456789"
-    ]
+    ],
+    "permits": "Admin"
   },
   {
     "ID": "2",
@@ -17,7 +18,8 @@
     "lastName": "Two",
     "phoneNumbers": [
       "123456789"
-    ]
+    ],
+    "permits": "Empleado"
   },
   {
     "ID": "3",
@@ -27,7 +29,8 @@
     "lastName": "Three",
     "phoneNumbers": [
       "123456789"
-    ]
+    ],
+    "permits": "Admin"
   },
   {
     "ID": "4",
@@ -37,6 +40,7 @@
     "lastName": "Four",
     "phoneNumbers": [
       "123456789"
-    ]
+    ],
+    "permits": "Empleado"
   }
 ]

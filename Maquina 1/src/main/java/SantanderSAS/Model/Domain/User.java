@@ -9,14 +9,16 @@ public class User {
     private String name;
     private String lastName;
     private List<String> phoneNumbers;
+    private String Permits;
 
-    public User(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers) {
+    public User(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers, String permits) {
         this.ID = ID;
         this.username = username;
         this.password = password;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
+        Permits = permits;
     }
 
     public String getID() {
@@ -62,12 +64,19 @@ public class User {
     public List<String> getPhoneNumbers() {
         return phoneNumbers;
     }
-
     public void setPhoneNumbers(List<String> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 
+    public String getPermits() {
+        return Permits;
+    }
+
+    public void setPermits(String permits) {
+        Permits = permits;
+    }
+
     public static User getNullUser() {
-        return new User(null, null, null, null, null, null);
+        return new User(null, null, null, null, null, null, null);
     }
 }

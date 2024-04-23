@@ -17,7 +17,7 @@ public class EditUserDialog extends JDialog {
     private final JTextField nameField;
     private final JTextField lastNameField;
     private final JTextField phoneNumbersField;
-
+    private final JTextField permitsField;
     public EditUserDialog(JFrame parent, UserManager userManager) {
         super(parent, "Edit User", true);
         this.userManager = userManager;
@@ -48,12 +48,16 @@ public class EditUserDialog extends JDialog {
         phoneNumbersField = new JTextField();
         add(phoneNumbersField);
 
+        add(new JLabel("Permits:"));
+        permitsField = new JTextField(); // Initialize permitsField
+        add(permitsField);
+
         JButton editButton = new JButton("Edit User");
         editButton.addActionListener(event -> {
             // Edit user in the repository
             List<String> phoneNumbers = Arrays.asList(phoneNumbersField.getText().split(","));
             try {
-                userManager.EditUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers));
+                userManager.EditUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers, permitsField.getText()));
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
