@@ -36,7 +36,11 @@ public class Menu extends JFrame {
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
-            new RouteManagerView(routeManager).setVisible(true);
+            try {
+                new RouteManagerView(routeManager).setVisible(true);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         trainManagerButton.addActionListener(event -> {
