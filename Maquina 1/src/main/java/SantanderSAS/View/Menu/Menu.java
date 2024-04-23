@@ -29,9 +29,24 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
+<<<<<<< HEAD
             RouteRepository routeRepository = new RouteRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
             RouteManager routeManager = new RouteManager(routeRepository);
             new RouteManagerView(routeManager).setVisible(true);
+=======
+            RouteRepository routeRepository = new RouteRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
+            RouteManager routeManager = null;
+            try {
+                routeManager = new RouteManager(routeRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                new RouteManagerView(routeManager).setVisible(true);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+>>>>>>> 149baedb7eadf4b5e997aa60319321ee8900ddf0
         });
 
         trainManagerButton.addActionListener(event -> {
@@ -47,8 +62,17 @@ public class Menu extends JFrame {
 
         userManagerButton.addActionListener(event -> {
             UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-            UserManager userManager = new UserManager(userRepository);
-            new UserManagerView(userManager).setVisible(true);
+            UserManager userManager = null;
+            try {
+                userManager = new UserManager(userRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                new UserManagerView(userManager).setVisible(true);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         add(routeManagerButton);

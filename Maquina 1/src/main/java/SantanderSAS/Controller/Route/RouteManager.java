@@ -19,27 +19,27 @@ public class RouteManager  implements RouteManagerSkeleton{
         this.graph = new Graph(routeRepository);
     }
 
-    public void addRoute(Route route) {
+    public void addRoute(Route route) throws RemoteException {
         routeRepository.addRoute(route);
     }
 
-    public void removeRoute(Route route) {
+    public void removeRoute(Route route) throws RemoteException {
         routeRepository.removeRoute(route);
     }
 
-    public void editRoute(Route oldRoute, Route newRoute) {
+    public void editRoute(Route oldRoute, Route newRoute) throws RemoteException {
         routeRepository.editRoute(oldRoute, newRoute);
     }
 
-    public List<Route> getRoutesFrom(String start) {
+    public List<Route> getRoutesFrom(String start) throws RemoteException {
         return routeRepository.getRoutesFrom(start);
     }
 
-    public Map<String, Integer> calculateShortestPaths(String start) {
+    public Map<String, Integer> calculateShortestPaths(String start) throws RemoteException {
         return graph.dijkstra(start);
     }
 
-    public List<Route> getAllRoutes() {
+    public List<Route> getAllRoutes() throws RemoteException {
         return routeRepository.getAllRoutes();
     }
 }

@@ -6,6 +6,7 @@ import SantanderSAS.Model.Domain.Route;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.rmi.RemoteException;
 
 public class RouteManagerView extends JFrame {
     private final JButton addButton;
@@ -15,7 +16,7 @@ public class RouteManagerView extends JFrame {
     private JTable routeTable;
     private JScrollPane scrollPane;
 
-    public RouteManagerView(RouteManager routeManager) {
+    public RouteManagerView(RouteManager routeManager) throws RemoteException {
         this.routeManager = routeManager;
 
         setTitle("Route Manager");
@@ -28,17 +29,29 @@ public class RouteManagerView extends JFrame {
 
         addButton.addActionListener(event -> {
             new AddRouteDialog(this, routeManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         removeButton.addActionListener(event -> {
             new RemoveRouteDialog(this, routeManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         editButton.addActionListener(event -> {
             new EditRouteDialog(this, routeManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         JPanel buttonPanel = new JPanel();
@@ -59,7 +72,7 @@ public class RouteManagerView extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void updateTable() {
+    private void updateTable() throws RemoteException {
         Route[] routes = getRoutes();
         remove(scrollPane);
         routeTable = new JTable(new RouteTableModel(routes));
@@ -69,7 +82,7 @@ public class RouteManagerView extends JFrame {
         repaint();
     }
 
-    private Route[] getRoutes() {
+    private Route[] getRoutes() throws RemoteException {
         return routeManager.getAllRoutes().toArray(new Route[0]);
     }
 

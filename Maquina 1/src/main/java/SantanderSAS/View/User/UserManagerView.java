@@ -7,6 +7,7 @@ import SantanderSAS.Model.Repository.User.UserRepository;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.rmi.RemoteException;
 
 public class UserManagerView extends JFrame {
     private final JButton addButton;
@@ -16,7 +17,7 @@ public class UserManagerView extends JFrame {
     private JTable userTable;
     private JScrollPane scrollPane;
 
-    public UserManagerView(UserManager userManager) {
+    public UserManagerView(UserManager userManager) throws RemoteException {
         this.userManager = userManager;
 
         setTitle("User Manager");
@@ -29,17 +30,29 @@ public class UserManagerView extends JFrame {
 
         addButton.addActionListener(event -> {
             new AddUserDialog(this, userManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         removeButton.addActionListener(event -> {
             new RemoveUserDialog(this, userManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         editButton.addActionListener(event -> {
             new EditUserDialog(this, userManager).setVisible(true);
-            updateTable();
+            try {
+                updateTable();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         JPanel buttonPanel = new JPanel();
@@ -60,7 +73,7 @@ public class UserManagerView extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void updateTable() {
+    private void updateTable() throws RemoteException {
         User[] users = getUsers();
         remove(scrollPane);
         userTable = new JTable(new UserTableModel(users));
@@ -70,7 +83,7 @@ public class UserManagerView extends JFrame {
         repaint();
     }
 
-    private User[] getUsers() {
+    private User[] getUsers() throws RemoteException {
         return userManager.GetUsers();
     }
 
@@ -125,8 +138,18 @@ public class UserManagerView extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             UserRepository userRepository = new UserRepository("C:\\Users\\Giank\\Desktop\\SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
-            UserManager userManager = new UserManager(userRepository);
-            UserManagerView view = new UserManagerView(userManager);
+            UserManager userManager = null;
+            try {
+                userManager = new UserManager(userRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            UserManagerView view = null;
+            try {
+                view = new UserManagerView(userManager);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             view.setVisible(true);
         });
     }

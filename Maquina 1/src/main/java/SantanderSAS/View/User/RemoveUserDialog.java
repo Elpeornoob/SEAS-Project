@@ -5,6 +5,7 @@ import javax.swing.*;
 import SantanderSAS.Controller.User.UserManager;
 
 import java.awt.*;
+import java.rmi.RemoteException;
 
 public class RemoveUserDialog extends JDialog {
     private final UserManager userManager;
@@ -23,7 +24,11 @@ public class RemoveUserDialog extends JDialog {
         JButton removeButton = new JButton("Remove User");
         removeButton.addActionListener(event -> {
             // Remove user from the repository
-            userManager.RemoveUser(idField.getText());
+            try {
+                userManager.RemoveUser(idField.getText());
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             dispose();
         });
         add(removeButton);

@@ -5,6 +5,7 @@ import SantanderSAS.Model.Domain.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,7 +52,11 @@ public class EditUserDialog extends JDialog {
         editButton.addActionListener(event -> {
             // Edit user in the repository
             List<String> phoneNumbers = Arrays.asList(phoneNumbersField.getText().split(","));
-            userManager.EditUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers));
+            try {
+                userManager.EditUser(new User(idField.getText(), usernameField.getText(), passwordField.getText(), nameField.getText(), lastNameField.getText(), phoneNumbers));
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             dispose();
         });
         add(editButton);

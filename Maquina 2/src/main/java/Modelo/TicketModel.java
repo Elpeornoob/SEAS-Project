@@ -4,6 +4,7 @@ import SantanderSAS.Model.Domain.Route;
 import SantanderSAS.Model.Domain.Passenger.ContactPerson;
 import SantanderSAS.Model.Domain.Passenger.Passenger;
 import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
+import com.google.gson.Gson;
 
 public class TicketModel {
     private String id;
@@ -138,5 +139,10 @@ public class TicketModel {
 
     public void setSeat(int seat) {
         this.seat = seat;
+    }
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

@@ -5,6 +5,7 @@ import SantanderSAS.Model.Domain.Route;
 
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.RemoteException;
 
 public class RemoveRouteDialog extends JDialog {
     private final JTextField startField;
@@ -21,7 +22,11 @@ public class RemoveRouteDialog extends JDialog {
         removeButton.addActionListener(event -> {
             String start = startField.getText();
             String end = endField.getText();
-            routeManager.removeRoute(new Route(start, end, 0));
+            try {
+                routeManager.removeRoute(new Route(start, end, 0));
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
             dispose();
         });
 
