@@ -1,6 +1,5 @@
-package SantanderSAS.Controller.Route;
+package SantanderSAS.Model.Domain;
 
-import SantanderSAS.Model.Domain.Route;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -14,9 +13,6 @@ public interface RouteManagerStub extends Remote {
 
     void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) throws RemoteException;
 
-    List<Route> getRoutesFrom(String start) throws RemoteException;
-
     Map<String, Integer> calculateShortestPaths(String start) throws RemoteException;
 
-    List<Route> getAllRoutes() throws RemoteException;
 }

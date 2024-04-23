@@ -32,10 +32,10 @@ public class SGTTPClientModel {
         return false;
     }
 
-    public void addUser(User user) {
+    public void addUser(String id, String username, String password, String name, String lastName, String telefono) {
         try {
             this.userManager = (UserManagerStub) Naming.lookup(url);
-            userManager.AddUser(user);
+            userManager.AddUser(id,username,password,name,lastName,telefono);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,10 +50,10 @@ public class SGTTPClientModel {
         }
     }
 
-    public void editUser(User user) {
+    public void editUser(String id) {
         try {
             this.userManager = (UserManagerStub) Naming.lookup(url);
-            userManager.EditUser(user);
+            userManager.EditUser(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,10 +79,10 @@ public class SGTTPClientModel {
         }
     }
 
-    public void addTrain(Train train) {
+    public void addTrain(String name, String id, String capacidadDeCarga, String kilometraje, String tipo) {
         try {
             this.trainManager = (TrainManagerStub) Naming.lookup(url);
-            trainManager.addTrain(train);
+            trainManager.addTrain(name,id,capacidadDeCarga,kilometraje,tipo);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,7 +97,7 @@ public class SGTTPClientModel {
         }
     }
 
-    public void editTrain(Train train) {
+    public void editTrain(String train) {
         try {
             this.trainManager = (TrainManagerStub) Naming.lookup(url);
             trainManager.editTrain(train);
@@ -135,19 +135,19 @@ public class SGTTPClientModel {
         }
     }
 
-    public void removeRoute(Route route) {
+    public void removeRoute(String nameRoute) {
         try {
             this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            routeManager.removeRoute(route);
+            routeManager.removeRoute(nameRoute);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void editRoute(Route oldRoute, Route newRoute) {
+    public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) {
         try {
             this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            routeManager.editRoute(oldRoute, newRoute);
+            routeManager.editRoute(nameRoute, start,end,distance,nameRoute);
         } catch (Exception e) {
             e.printStackTrace();
         }
