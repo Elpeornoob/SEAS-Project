@@ -5,6 +5,8 @@ import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserRepository implements Serializable {
 
@@ -16,14 +18,18 @@ public class UserRepository implements Serializable {
         this.fileJson = FileJsonAdapter.getInstance();
     }
 
-    public User getUser(String username) {
+    public Map<String, Object> getUser(String username) {
         User[] users = fileJson.getObjects(pathFile, User[].class);
         for (User user : users) {
             if (user.getUsername().equals(username)) {
-                return user;
+                Map<String, Object> userMap = new HashMap<>();
+                userMap.put("id", user.getID());
+                userMap.put("username", user.getUsername());
+                // Add other user properties to the map
+                return userMap;
             }
         }
-        return null; // or return a default User
+        return null;
     }
 
     public void addUser(User user) {

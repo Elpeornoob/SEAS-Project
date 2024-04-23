@@ -39,21 +39,25 @@ public class RouteRepository implements Serializable{
     }
 
     public void removeRoute(String nameRoute) {
-        Route route = getRouteByName(nameRoute);
-        List<Route> routeList = routes.get(route.getStart());
-        if (routeList != null) {
-            routeList.remove(route);
+        List<Route> routesToRemove = getRoutesByName(nameRoute);
+        for (Route route : routesToRemove) {
+            List<Route> routeList = routes.get(route.getStart());
+            if (routeList != null) {
+                routeList.remove(route);
+            }
         }
     }
 
     public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) {
-        Route oldRoute = getRouteByName(nameOldRoute);
+        List<Route> oldRoutes = getRoutesByName(nameOldRoute);
         Route newRoute = new Route(start, end, Integer.parseInt(distance), nameRoute);
-        List<Route> routeList = routes.get(oldRoute.getStart());
-        if (routeList != null) {
-            int index = routeList.indexOf(oldRoute);
-            if (index != -1) {
-                routeList.set(index, newRoute);
+        for (Route oldRoute : oldRoutes) {
+            List<Route> routeList = routes.get(oldRoute.getStart());
+            if (routeList != null) {
+                int index = routeList.indexOf(oldRoute);
+                if (index != -1) {
+                    routeList.set(index, newRoute);
+                }
             }
         }
     }
@@ -74,26 +78,45 @@ public class RouteRepository implements Serializable{
         return routeslist;
     }
 
-    public Map<String, List<Route>> getRoutes() {
-        return routes;
+    public List<Map<String, String>> getRoutes() {
+        List<Map<String, String>> routesList = new LinkedList<>();
+        for (List<Route> routeList : routes.values()) {
+            for (Route route : routeList) {
+                Map<String, String> mapRoutes = new HashMap<>();
+                mapRoutes.put("start", route.getStart());
+                mapRoutes.put("end", route.getEnd());
+                mapRoutes.put("distance", String.valueOf(route.getDistance()));
+                mapRoutes.put("nameroute", route.getNameRute());
+                routesList.add(mapRoutes);
+            }
+        }
+        return routesList;
     }
 
-    public List<Route> getAllRoutes() {
-        List<Route> allRoutes = new ArrayList<>();
+    public List<Map<String, String>> getAllRoutes() {
+        List<Map<String, String>> allRoutes = new LinkedList<>();
         for (List<Route> routeList : routes.values()) {
-            allRoutes.addAll(routeList);
+            for (Route route : routeList) {
+                Map<String, String> mapRoutes = new HashMap<>();
+                mapRoutes.put("start", route.getStart());
+                mapRoutes.put("end", route.getEnd());
+                mapRoutes.put("distance", String.valueOf(route.getDistance()));
+                mapRoutes.put("nameroute", route.getNameRute());
+                allRoutes.add(mapRoutes);
+            }
         }
         return allRoutes;
     }
 
-   public Route getRouteByName(String nameRoute) {
-    for (List<Route> routeList : routes.values()) {
-        for (Route route : routeList) {
-            if (String.valueOf(route.getNameRute()).equals(nameRoute)) {
-                return route;
+    public List<Route> getRoutesByName(String nameRoute) {
+        List<Route> matchingRoutes = new ArrayList<>();
+        for (List<Route> routeList : routes.values()) {
+            for (Route route : routeList) {
+                if (String.valueOf(route.getNameRute()).equals(nameRoute)) {
+                    matchingRoutes.add(route);
+                }
             }
         }
+        return matchingRoutes;
     }
-    return null;
-}
 }

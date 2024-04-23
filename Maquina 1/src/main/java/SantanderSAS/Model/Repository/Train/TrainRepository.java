@@ -5,6 +5,9 @@ import SantanderSAS.Model.Domain.Train.Train;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonInterface;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TrainRepository {
 
     private final FileJsonInterface<TrainEntity> fileJson;
@@ -60,15 +63,22 @@ public class TrainRepository {
         fileJson.writeObjects(pathFile, trainEntities);
     }
 
-    public Train getTrain(String identificador) {
+    public Map<String, Object> getTrain(String identificador) {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
         for (TrainEntity trainEntity : trainEntities) {
             if (trainEntity.identificador.equals(identificador)) {
-                return new Train(trainEntity.nombre, trainEntity.identificador, trainEntity.capacidadDeCarga, trainEntity.kilometraje, trainEntity.tipo);
+                Map<String, Object> trainMap = new HashMap<>();
+                trainMap.put("nombre", trainEntity.nombre);
+                trainMap.put("identificador", trainEntity.identificador);
+                trainMap.put("capacidadDeCarga", trainEntity.capacidadDeCarga);
+                trainMap.put("kilometraje", trainEntity.kilometraje);
+                trainMap.put("tipo", trainEntity.tipo);
+                return trainMap;
             }
         }
-        return null; // or return a NullTrain object
+        return null;
     }
+
 
     public Train[] getTrains() {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
