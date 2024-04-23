@@ -117,4 +117,12 @@ public class RouteRepository implements Serializable{
         }
         return matchingRoutes;
     }
+
+    public List<Route> getRoutesAsList() {
+    List<Route> allRoutes = new LinkedList<>();
+    for (List<Route> routeList : routes.values()) {
+        allRoutes.addAll(routeList);
+    }
+    return allRoutes;
+}
 }

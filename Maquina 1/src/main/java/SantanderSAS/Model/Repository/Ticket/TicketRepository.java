@@ -28,7 +28,7 @@ public class TicketRepository implements Serializable{
     PassengerRepository passengerRepository = new PassengerRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\passenger.json");
     for(TicketEntity ticketEntity : ticketEntities){
         if(ticketEntity.id.equals(idTicket)){
-            List<Route> routes = routeRepository.getRoutesByName(ticketEntity.route);
+            List<Map<String, String>> routes = routeRepository.getRoutesByName(ticketEntity.route);
             Map<String, Object> passengerMap = passengerRepository.getPassenger(ticketEntity.idpassenger);
             Map<String, Object> ticketMap = new HashMap<>();
             ticketMap.put("id", ticketEntity.id);
