@@ -69,7 +69,7 @@ public class UserRepository implements Serializable {
         }
     }
 
-    public void editUser(User user) {
+    public void editUser(User id) {
         User[] users = fileJson.getObjects(pathFile, User[].class);
         for (int i = 0; i < users.length; i++) {
             if (users[i].getID().equals(user.getID())) {

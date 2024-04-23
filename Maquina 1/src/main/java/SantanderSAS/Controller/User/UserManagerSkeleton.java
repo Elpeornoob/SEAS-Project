@@ -1,13 +1,14 @@
 package SantanderSAS.Controller.User;
 
 import SantanderSAS.Model.Domain.User;
+import bryan.util.list.List;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface UserManagerSkeleton extends Remote {
-    void AddUser(User user) throws RemoteException;
+    void AddUser(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers, String permits) throws RemoteException;
 
     void RemoveUser(String id) throws RemoteException;
 
