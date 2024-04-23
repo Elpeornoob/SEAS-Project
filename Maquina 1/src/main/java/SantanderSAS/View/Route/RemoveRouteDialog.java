@@ -23,7 +23,8 @@ public class RemoveRouteDialog extends JDialog {
             String start = startField.getText();
             String end = endField.getText();
             try {
-                routeManager.removeRoute(new Route(start, end, 0));
+                String routeName = start + "-" + end; // Crear el nombre de la ruta
+                routeManager.removeRoute(routeName);
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }

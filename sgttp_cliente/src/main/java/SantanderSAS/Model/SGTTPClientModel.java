@@ -139,33 +139,33 @@ public class SGTTPClientModel {
         }
     }
 
-    public void removeRoute(Route route) {
-        try {
-            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            routeManager.removeRoute(route);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+       public void removeRoute(String routeName) {
+    try {
+        this.routeManager = (RouteManagerStub) Naming.lookup(url);
+        routeManager.removeRoute(routeName);
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
 
-    public void editRoute(Route oldRoute, Route newRoute) {
-        try {
-            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            routeManager.editRoute(oldRoute, newRoute);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void editRoute(String oldRouteName, String start, String end, String distance, String newRouteName) {
+    try {
+        this.routeManager = (RouteManagerStub) Naming.lookup(url);
+        routeManager.editRoute(oldRouteName, start, end, distance, newRouteName);
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
 
-    public List<Route> getRoutesFrom(String start) {
-        try {
-            this.routeManager = (RouteManagerStub) Naming.lookup(url);
-            return routeManager.getRoutesFrom(start);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public List<Map<String, String>> getRoutesFrom(String start) {
+    try {
+        this.routeManager = (RouteManagerStub) Naming.lookup(url);
+        return routeManager.getRoutesFrom(start);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
     }
+}
 
     public Map<String, Integer> calculateShortestPaths(String start) {
         try {

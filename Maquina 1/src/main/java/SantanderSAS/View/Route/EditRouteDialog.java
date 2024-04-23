@@ -35,12 +35,14 @@ public class EditRouteDialog extends JDialog {
             int newDistance = Integer.parseInt(newDistanceField.getText());
             String newNameRute = newNameRuteField.getText(); // Obtener el valor del nuevo campo
             try {
-                routeManager.editRoute(new Route(oldStart, oldEnd, 0), new Route(newStart, newEnd, newDistance, newNameRute)); // Pasar el nuevo valor
+                String oldRouteName = oldStart + "-" + oldEnd; // Crear el nombre de la ruta antigua
+                routeManager.editRoute(oldRouteName, newStart, newEnd, String.valueOf(newDistance), newNameRute); // Pasar el nuevo valor
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
             dispose();
         });
+
 
         setLayout(new GridLayout(7, 2)); // Actualizado a 7 para incluir el nuevo campo
         add(new JLabel("Old Start:"));

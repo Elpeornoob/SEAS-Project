@@ -18,5 +18,6 @@ public interface RouteManagerSkeleton extends Remote {
 
     Map<String, Integer> calculateShortestPaths(String start) throws RemoteException;
 
-    List<Route> getAllRoutes() throws RemoteException;
+    List<Map<String, String>> getAllRoutes() throws RemoteException;
+    List<Route> getRouteByName(String nameRoute) throws RemoteException;
 }
