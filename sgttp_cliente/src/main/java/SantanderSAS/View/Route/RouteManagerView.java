@@ -90,7 +90,7 @@ public class RouteManagerView extends JFrame {
         private final Route[] routes;
 
         private static final String[] COLUMN_NAMES = {
-                "Start", "End", "Distance"
+                "Start", "End", "Distance", "Name Route" // Added "Name Route"
         };
 
         public RouteTableModel(Route[] routes) {
@@ -122,6 +122,8 @@ public class RouteManagerView extends JFrame {
                     return route.getEnd();
                 case 2:
                     return route.getDistance();
+                case 3: // Added case for "Name Route"
+                    return route.getNameRute();
                 default:
                     return null;
             }

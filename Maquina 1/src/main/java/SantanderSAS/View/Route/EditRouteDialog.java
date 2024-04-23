@@ -13,6 +13,7 @@ public class EditRouteDialog extends JDialog {
     private final JTextField newStartField;
     private final JTextField newEndField;
     private final JTextField newDistanceField;
+    private final JTextField newNameRuteField; // Nuevo campo
     private final JButton editButton;
 
     public EditRouteDialog(JFrame parent, RouteManager routeManager) {
@@ -23,6 +24,7 @@ public class EditRouteDialog extends JDialog {
         newStartField = new JTextField();
         newEndField = new JTextField();
         newDistanceField = new JTextField();
+        newNameRuteField = new JTextField(); // Inicialización del nuevo campo
         editButton = new JButton("Edit");
 
         editButton.addActionListener(event -> {
@@ -31,15 +33,16 @@ public class EditRouteDialog extends JDialog {
             String newStart = newStartField.getText();
             String newEnd = newEndField.getText();
             int newDistance = Integer.parseInt(newDistanceField.getText());
+            String newNameRute = newNameRuteField.getText(); // Obtener el valor del nuevo campo
             try {
-                routeManager.editRoute(new Route(oldStart, oldEnd, 0), new Route(newStart, newEnd, newDistance));
+                routeManager.editRoute(new Route(oldStart, oldEnd, 0), new Route(newStart, newEnd, newDistance, newNameRute)); // Pasar el nuevo valor
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
             dispose();
         });
 
-        setLayout(new GridLayout(6, 2));
+        setLayout(new GridLayout(7, 2)); // Actualizado a 7 para incluir el nuevo campo
         add(new JLabel("Old Start:"));
         add(oldStartField);
         add(new JLabel("Old End:"));
@@ -50,6 +53,8 @@ public class EditRouteDialog extends JDialog {
         add(newEndField);
         add(new JLabel("New Distance:"));
         add(newDistanceField);
+        add(new JLabel("New Name Route:")); // Etiqueta para el nuevo campo
+        add(newNameRuteField); // Agregar el nuevo campo al layout
         add(editButton);
 
         pack();
