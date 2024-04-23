@@ -12,8 +12,7 @@ public interface TrainManagerSkeleton extends Remote {
 
     void removeTrain(String identificador) throws RemoteException;
 
-    void editTrain(String identificador) throws RemoteException;
-
+    void editTrain(String nameTrain, String newNombre, String newIdentificador, int newCapacidadDeCarga, int newKilometraje, String newTipo) throws RemoteException;
     Map<String, String> getTrain(String identificador) throws RemoteException;
 
     List<Map<String, String>> getTrains() throws RemoteException;

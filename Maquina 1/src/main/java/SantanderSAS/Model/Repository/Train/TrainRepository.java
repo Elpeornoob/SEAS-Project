@@ -55,15 +55,15 @@ public class TrainRepository {
 
     }
 
-    public void editTrain(String nameTrain) {
-        TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
-        for (int i = 0; i < trainEntities.length; i++) {
-            if (trainEntities[i].identificador.equals(train.getIdentificador())) {
-                trainEntities[i] = new TrainEntity(train.getNombre(), train.getIdentificador(), train.getCapacidadDeCarga(), train.getKilometraje(), train.getTipo());
-            }
+    public void editTrain(String nameTrain, String newNombre, String newIdentificador, int newCapacidadDeCarga, int newKilometraje, String newTipo) {
+    TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
+    for (int i = 0; i < trainEntities.length; i++) {
+        if (trainEntities[i].nombre.equals(nameTrain)) {
+            trainEntities[i] = new TrainEntity(newNombre, newIdentificador, newCapacidadDeCarga, newKilometraje, newTipo);
         }
-        fileJson.writeObjects(pathFile, trainEntities);
     }
+    fileJson.writeObjects(pathFile, trainEntities);
+}
 
     public Map<String, String> getTrain(String identificador) {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);

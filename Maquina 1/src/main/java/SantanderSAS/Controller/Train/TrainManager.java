@@ -25,16 +25,15 @@ public class TrainManager extends UnicastRemoteObject implements TrainManagerSke
         trainRepository.removeTrain(identificador);
     }
 
-    public void editTrain(String nameTrain) throws RemoteException {
-        trainRepository.editTrain(nameTrain);
+    public void editTrain(String nameTrain, String newNombre, String newIdentificador, int newCapacidadDeCarga, int newKilometraje, String newTipo) throws RemoteException {
+    trainRepository.editTrain(nameTrain, newNombre, newIdentificador, newCapacidadDeCarga, newKilometraje, newTipo);
     }
 
     public Map<String, String> getTrain(String identificador) throws RemoteException {
     return trainRepository.getTrain(identificador);
-}
+    }
 
     public List<Map<String, String>> getTrains() throws RemoteException {
         return trainRepository.getTrains();
     }
-
 }
