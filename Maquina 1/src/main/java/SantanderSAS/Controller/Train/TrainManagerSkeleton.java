@@ -8,13 +8,13 @@ import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface TrainManagerSkeleton extends Remote {
-    void addTrain(Train train) throws RemoteException;
+    void addTrain(String nombre, String identificador, int capacidadDeCarga, int kilometraje, String tipo) throws RemoteException;
 
     void removeTrain(String identificador) throws RemoteException;
 
-    void editTrain(Train train) throws RemoteException;
+    void editTrain(String identificador) throws RemoteException;
 
-    List<Map<String, Object>> getTrain(String identificador) throws RemoteException;
+    Map<String, String> getTrain(String identificador) throws RemoteException;
 
-    List<Map<String, Object>> getTrains() throws RemoteException;
+    List<Map<String, String>> getTrains() throws RemoteException;
 }

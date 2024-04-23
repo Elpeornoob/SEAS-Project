@@ -55,7 +55,7 @@ public class TrainRepository {
 
     }
 
-    public void editTrain(Train train) {
+    public void editTrain(String nameTrain) {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
         for (int i = 0; i < trainEntities.length; i++) {
             if (trainEntities[i].identificador.equals(train.getIdentificador())) {
@@ -65,15 +65,15 @@ public class TrainRepository {
         fileJson.writeObjects(pathFile, trainEntities);
     }
 
-    public Map<String, Object> getTrain(String identificador) {
+    public Map<String, String> getTrain(String identificador) {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
         for (TrainEntity trainEntity : trainEntities) {
             if (trainEntity.identificador.equals(identificador)) {
-                Map<String, Object> trainMap = new HashMap<>();
+                Map<String, String> trainMap = new HashMap<>();
                 trainMap.put("nombre", trainEntity.nombre);
                 trainMap.put("identificador", trainEntity.identificador);
-                trainMap.put("capacidadDeCarga", trainEntity.capacidadDeCarga);
-                trainMap.put("kilometraje", trainEntity.kilometraje);
+                trainMap.put("capacidadDeCarga", String.valueOf(trainEntity.capacidadDeCarga));
+                trainMap.put("kilometraje", String.valueOf(trainEntity.kilometraje));
                 trainMap.put("tipo", trainEntity.tipo);
                 return trainMap;
             }
@@ -81,18 +81,18 @@ public class TrainRepository {
         return null;
     }
 
-    public List<Map<String, Object>> getTrains() {
+    public List<Map<String, String>> getTrains() {
     TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
     if (trainEntities == null) {
-        return (List<Map<String, Object>>) new ArrayList<>(); // Devuelve una lista vacía si no se encontraron trenes
+        return (List<Map<String, String>>) new ArrayList<>(); // Devuelve una lista vacía si no se encontraron trenes
     }
-    List<Map<String, Object>> trains = (List<Map<String, Object>>) new ArrayList<>();
+    List<Map<String, String>> trains = (List<Map<String, String>>) new ArrayList<>();
     for (TrainEntity trainEntity : trainEntities) {
-        Map<String, Object> trainMap = new HashMap<>();
+        Map<String, String> trainMap = new HashMap<>();
         trainMap.put("nombre", trainEntity.nombre);
         trainMap.put("identificador", trainEntity.identificador);
-        trainMap.put("capacidadDeCarga", trainEntity.capacidadDeCarga);
-        trainMap.put("kilometraje", trainEntity.kilometraje);
+        trainMap.put("capacidadDeCarga", String.valueOf(trainEntity.capacidadDeCarga));
+        trainMap.put("kilometraje", String.valueOf(trainEntity.kilometraje));
         trainMap.put("tipo", trainEntity.tipo);
         trains.add(trainMap);
     }
