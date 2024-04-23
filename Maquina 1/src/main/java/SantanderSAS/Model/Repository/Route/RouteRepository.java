@@ -39,27 +39,11 @@ public class RouteRepository implements Serializable{
     }
 
     public void removeRoute(String nameRoute) {
-        List<Route> routesToRemove = getRoutesByName(nameRoute);
-        for (Route route : routesToRemove) {
-            List<Route> routeList = routes.get(route.getStart());
-            if (routeList != null) {
-                routeList.remove(route);
-            }
-        }
+        
     }
 
     public void editRoute(String nameOldRoute, String start, String end, String distance, String nameRoute) {
-        List<Route> oldRoutes = getRoutesByName(nameOldRoute);
-        Route newRoute = new Route(start, end, Integer.parseInt(distance), nameRoute);
-        for (Route oldRoute : oldRoutes) {
-            List<Route> routeList = routes.get(oldRoute.getStart());
-            if (routeList != null) {
-                int index = routeList.indexOf(oldRoute);
-                if (index != -1) {
-                    routeList.set(index, newRoute);
-                }
-            }
-        }
+        
     }
 
     public List<Map<String, String>> getRoutesFrom(String start) {
@@ -108,12 +92,17 @@ public class RouteRepository implements Serializable{
         return allRoutes;
     }
 
-    public List<Route> getRoutesByName(String nameRoute) {
-        List<Route> matchingRoutes = new ArrayList<>();
+    public List<Map<String, String>> getRoutesByName(String nameRoute) {
+        List<Map<String, String>> matchingRoutes = new LinkedList<>();
         for (List<Route> routeList : routes.values()) {
             for (Route route : routeList) {
                 if (String.valueOf(route.getNameRute()).equals(nameRoute)) {
-                    matchingRoutes.add(route);
+                    Map<String, String> mapRoutes = new HashMap<>();
+                    mapRoutes.put("start", route.getStart());
+                    mapRoutes.put("end", route.getEnd());
+                    mapRoutes.put("distance", String.valueOf(route.getDistance()));
+                    mapRoutes.put("nameroute", route.getNameRute());
+                    matchingRoutes.add(mapRoutes);
                 }
             }
         }
