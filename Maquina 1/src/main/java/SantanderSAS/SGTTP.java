@@ -3,7 +3,6 @@ package SantanderSAS;
 import SantanderSAS.Controller.SGTTPController;
 import SantanderSAS.Controller.Login.LoginManager;
 import SantanderSAS.Model.SGTTPModel;
-import SantanderSAS.View.Login.LoginView;
 import SantanderSAS.View.SGTTPView;
 
 import java.io.File;
@@ -23,10 +22,6 @@ public class SGTTP {
                     (String) config.get("SERVICE_NAME"));
             SGTTPController controller = new SGTTPController(model, new SGTTPView("SGTTP Server", model.getMessenger()));
             controller.start();
-
-            // Start the login view
-            LoginManager loginManager = new LoginManager();
-            new LoginView(loginManager).setVisible(true);
         } catch (Exception e) {
             Logger.getLogger("AuthServer").log(Level.WARNING, e.getMessage(), e);
         }

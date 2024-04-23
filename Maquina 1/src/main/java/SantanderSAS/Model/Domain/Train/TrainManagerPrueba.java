@@ -38,7 +38,7 @@ public class TrainManagerPrueba extends UnicastRemoteObject implements TrainMana
 
     @Override
     public Train getTrain(String idTrain) throws RemoteException {
-        return trainRepository.getTrain(idTrain);
+        return (Train) trainRepository.getTrain(idTrain);
     }
 
     @Override
