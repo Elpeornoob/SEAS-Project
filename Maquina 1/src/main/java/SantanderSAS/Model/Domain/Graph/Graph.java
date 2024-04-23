@@ -23,8 +23,7 @@ public class Graph {
     }
 
     public Map<String, Integer> dijkstra(String start) {
-        Map<String, List<Route>> routes = routeReposotry.getRoutes();
-        ;
+        Map<String, List<Route>> routes = (Map<String, List<Route>>) routeReposotry.getRoutes();
         Map<String, Integer> distances = new HashMap<>();
         Set<String> visited = new HashSet<>();
         PriorityQueue<Route> queue = new PriorityQueue<>(Comparator.comparingInt(Route::getDistance));
