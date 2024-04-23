@@ -39,7 +39,7 @@ public class Menu extends JFrame {
         });
 
         trainManagerButton.addActionListener(event -> {
-            TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
+            TrainRepository trainRepository = new TrainRepository("SantanderSAS/Model/DataBase/train.json");
             TrainManager trainManager = null;
             try {
                 trainManager = new TrainManager(trainRepository);

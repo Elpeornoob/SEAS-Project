@@ -1,52 +1,78 @@
 package SantanderSAS.View;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import SantanderSAS.Controller.Route.RouteManager;
+import SantanderSAS.Controller.Train.TrainManager;
+import SantanderSAS.Controller.User.UserManager;
+import SantanderSAS.Model.Repository.Route.RouteRepository;
+import SantanderSAS.Model.Repository.Train.TrainRepository;
+import SantanderSAS.Model.Repository.User.UserRepository;
+import SantanderSAS.View.Route.RouteManagerView;
+import SantanderSAS.View.Train.TrainManagerView;
+import SantanderSAS.View.User.UserManagerView;
 
-import bryan.io.array.Array;
+import javax.swing.*;
+import java.awt.*;
+import java.rmi.RemoteException;
 
-public class SGTTPClientView {
-    BufferedReader br;
-    String border = "++++++++++++++++++++++++++++++++++++";
+public class Menu extends JFrame {
+    private final JButton routeManagerButton;
+    private final JButton trainManagerButton;
+    private final JButton userManagerButton;
 
-    public SGTTPClientView() {
-        br = new BufferedReader(new InputStreamReader(System.in));
+    public Menu() {
+        setTitle("Menu");
+        setSize(300, 200);
+        setLayout(new GridLayout(3, 1));
+
+        routeManagerButton = new JButton("Route Manager");
+        trainManagerButton = new JButton("Train Manager");
+        userManagerButton = new JButton("User Manager");
+
+        routeManagerButton.addActionListener(event -> {
+            RouteRepository routeRepository = new RouteRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
+            RouteManager routeManager = new RouteManager(routeRepository);
+            try {
+                new RouteManagerView(routeManager).setVisible(true);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        trainManagerButton.addActionListener(event -> {
+            TrainRepository trainRepository = new TrainRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\train.json");
+            TrainManager trainManager = null;
+            try {
+                trainManager = new TrainManager(trainRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            new TrainManagerView(trainManager).setVisible(true);
+        });
+
+        userManagerButton.addActionListener(event -> {
+            UserRepository userRepository = new UserRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\user.json");
+            UserManager userManager = null;
+            try {
+                userManager = new UserManager(userRepository);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                new UserManagerView(userManager).setVisible(true);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        add(routeManagerButton);
+        add(trainManagerButton);
+        add(userManagerButton);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
-    public Array<String> showLoginConsole() {
-        Array<String> loginData = new Array<>(2);
-        System.out.println(border);
-        System.out.println("Login");
-        System.out.println(border);
-        try {
-            System.out.println("Login:");
-            String login = br.readLine();
-            loginData.add(login);
-            System.out.println("Password:");
-            String password = br.readLine();
-            loginData.add(password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return loginData;
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Menu().setVisible(true));
     }
-
-    public void showMainConsole() {
-        System.out.println(border);
-        System.out.println("Main");
-        System.out.println(border);
-    }
-
-    public boolean showLoginError() {
-        try {
-            System.out.println("Login error");
-            System.out.println("y/n");
-            return br.readLine().equals("y");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public
 }

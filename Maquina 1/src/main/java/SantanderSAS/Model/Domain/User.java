@@ -9,7 +9,7 @@ public class User {
     private String name;
     private String lastName;
     private List<String> phoneNumbers;
-    private String Permits;
+    private String permits;
 
     public User(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers, String permits) {
         this.ID = ID;
@@ -18,7 +18,7 @@ public class User {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
-        Permits = permits;
+        permits = permits;
     }
 
     public String getID() {
@@ -68,12 +68,12 @@ public class User {
         this.phoneNumbers = phoneNumbers;
     }
 
-    public String getPermits() {
-        return Permits;
+    public String getpermits() {
+        return permits;
     }
 
-    public void setPermits(String permits) {
-        Permits = permits;
+    public void setpermits(String permits) {
+        permits = permits;
     }
 
     public static User getNullUser() {

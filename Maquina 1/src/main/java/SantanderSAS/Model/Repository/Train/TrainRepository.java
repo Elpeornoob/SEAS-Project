@@ -72,6 +72,9 @@ public class TrainRepository {
 
     public Train[] getTrains() {
         TrainEntity[] trainEntities = fileJson.getObjects(pathFile, TrainEntity[].class);
+        if (trainEntities == null) {
+            return new Train[0]; // Devuelve una matriz vacía si no se encontraron trenes
+        }
         Train[] trains = new Train[trainEntities.length];
         for (int i = 0; i < trainEntities.length; i++) {
             trains[i] = new Train(trainEntities[i].nombre, trainEntities[i].identificador, trainEntities[i].capacidadDeCarga, trainEntities[i].kilometraje, trainEntities[i].tipo);
