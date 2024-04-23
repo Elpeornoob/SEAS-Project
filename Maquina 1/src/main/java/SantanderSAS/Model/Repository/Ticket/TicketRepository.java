@@ -19,7 +19,7 @@ public class TicketRepository implements Serializable{
 
     public Ticket getTicket(String idTicket){
         TicketEntity[] ticketEntities = fileJson.getObjects(idTicket, TicketEntity[].class);
-        RouteRepository routeRepository = new RouteRepository(idTicket)
+        RouteRepository routeRepository = new RouteRepository(idTicket);
         for(TicketEntity ticketEntity : ticketEntities){
             if(ticketEntity.id.equals(idTicket)){
                 

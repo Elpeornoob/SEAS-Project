@@ -6,7 +6,7 @@ public class Route {
     private String start;
     private String end;
     private int distance;
-    private int nameRuta;
+    private int nameRute;
 
     public Route(){
         
@@ -20,11 +20,11 @@ public class Route {
 
     
 
-    public Route(String start, String end, int distance, int nameRuta) {
+    public Route(String start, String end, int distance, int nameRute) {
         this.start = start;
         this.end = end;
         this.distance = distance;
-        this.nameRuta = nameRuta;
+        this.nameRute = nameRute;
     }
 
     public String getStart() {
@@ -64,12 +64,12 @@ public class Route {
         return Objects.hash(start, end);
     }
 
-    public int getNameRuta() {
-        return nameRuta;
+    public int getNameRute() {
+        return nameRute;
     }
 
-    public void setNameRuta(int nameRuta) {
-        this.nameRuta = nameRuta;
+    public void setNameRute(int nameRuta) {
+        this.nameRute = nameRuta;
     }
 
     

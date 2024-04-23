@@ -29,24 +29,13 @@ public class Menu extends JFrame {
         userManagerButton = new JButton("User Manager");
 
         routeManagerButton.addActionListener(event -> {
-<<<<<<< HEAD
             RouteRepository routeRepository = new RouteRepository("Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
             RouteManager routeManager = new RouteManager(routeRepository);
-            new RouteManagerView(routeManager).setVisible(true);
-=======
-            RouteRepository routeRepository = new RouteRepository("SEAS-Project\\Maquina 1\\src\\main\\java\\SantanderSAS\\Model\\DataBase\\route.json");
-            RouteManager routeManager = null;
-            try {
-                routeManager = new RouteManager(routeRepository);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
             try {
                 new RouteManagerView(routeManager).setVisible(true);
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
->>>>>>> 149baedb7eadf4b5e997aa60319321ee8900ddf0
         });
 
         trainManagerButton.addActionListener(event -> {

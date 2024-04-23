@@ -66,4 +66,15 @@ public class RouteRepository {
         }
         return allRoutes;
     }
+
+   public Route getRouteByName(String nameRoute) {
+    for (List<Route> routeList : routes.values()) {
+        for (Route route : routeList) {
+            if (String.valueOf(route.getNameRute()).equals(nameRoute)) {
+                return route;
+            }
+        }
+    }
+    return null;
+}
 }
