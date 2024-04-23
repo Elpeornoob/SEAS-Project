@@ -1,6 +1,6 @@
 package SantanderSAS.Model.Domain.Passenger;
 
-import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
+
 
 public class Passenger {
     private String name;
@@ -10,14 +10,14 @@ public class Passenger {
     private String currentAddress;
     private String id;
     private ContactPerson contactPerson;
-    private Baggage baggage;
+
 
     public Passenger(){
         
     }
 
     public Passenger(String name, String lastName, String[] phoneNumbers, TypeIdentification typeIdentification,
-                     String currentAddress, String id, ContactPerson contactPerson, Baggage baggage) {
+                     String currentAddress, String id, ContactPerson contactPerson) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
@@ -25,7 +25,6 @@ public class Passenger {
         this.currentAddress = currentAddress;
         this.id = id;
         this.contactPerson = contactPerson;
-        this.baggage = baggage;
     }
 
     public String getName() {
@@ -82,14 +81,6 @@ public class Passenger {
 
     public void setContactPerson(ContactPerson contactPerson) {
         this.contactPerson = contactPerson;
-    }
-
-    public Baggage getBaggage() {
-        return baggage;
-    }
-
-    public void setBaggage(Baggage baggage) {
-        this.baggage = baggage;
     }
 
 }
