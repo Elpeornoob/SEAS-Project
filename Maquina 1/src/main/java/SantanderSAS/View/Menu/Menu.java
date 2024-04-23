@@ -1,8 +1,8 @@
 package SantanderSAS.View.Menu;
 
-import SantanderSAS.Controller.RouteManager;
-import SantanderSAS.Controller.TrainManager;
-import SantanderSAS.Controller.UserManager;
+import SantanderSAS.Controller.Route.RouteManager;
+import SantanderSAS.Controller.Train.TrainManager;
+import SantanderSAS.Controller.User.UserManager;
 import SantanderSAS.Model.Repository.RouteRepository;
 import SantanderSAS.Model.Repository.TrainRepository;
 import SantanderSAS.Model.Repository.UserRepository;

@@ -1,8 +1,9 @@
 package SantanderSAS.View.Train;
 
-import SantanderSAS.Controller.TrainManager;
-
 import javax.swing.*;
+
+import SantanderSAS.Controller.Train.TrainManager;
+
 import java.awt.*;
 import java.rmi.RemoteException;
 

@@ -1,7 +1,7 @@
 package SantanderSAS.Model;
 
-import SantanderSAS.Controller.LoginManager;
-import SantanderSAS.Controller.LoginManagerSkeleton;
+import SantanderSAS.Controller.Login.LoginManager;
+import SantanderSAS.Controller.Login.LoginManagerSkeleton;
 import SantanderSAS.Model.Messenger.Messenger;
 
 import java.rmi.Naming;

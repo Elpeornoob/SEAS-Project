@@ -1,6 +1,6 @@
 package SantanderSAS.View.User;
 
-import SantanderSAS.Controller.UserManager;
+import SantanderSAS.Controller.User.UserManager;
 import SantanderSAS.Model.Domain.User;
 
 import javax.swing.*;

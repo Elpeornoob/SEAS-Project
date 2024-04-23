@@ -1,6 +1,6 @@
 package SantanderSAS.View.Login;
 
-import SantanderSAS.Controller.LoginManager;
+import SantanderSAS.Controller.Login.LoginManager;
 import SantanderSAS.View.Menu.Menu;
 
 import javax.swing.*;

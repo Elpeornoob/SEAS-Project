@@ -1,1 +1,1 @@
-Proyecto de Estructuras de Datos Admin, Ingenieria de Sistemas 3er Semestre
+Proyecto de Estructuras de Datos, Ingenieria de Sistemas 3er Semestre

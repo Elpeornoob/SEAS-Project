@@ -1,4 +1,4 @@
-package SantanderSAS.Controller;
+package SantanderSAS.Controller.User;
 
 import SantanderSAS.Model.Domain.User;
 

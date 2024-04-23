@@ -1,4 +1,4 @@
-package SantanderSAS.Controller;
+package SantanderSAS.Controller.Train;
 
 import SantanderSAS.Model.Domain.Train.Train;
 

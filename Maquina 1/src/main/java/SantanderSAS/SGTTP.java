@@ -1,7 +1,7 @@
 package SantanderSAS;
 
-import SantanderSAS.Controller.LoginManager;
 import SantanderSAS.Controller.SGTTPController;
+import SantanderSAS.Controller.Login.LoginManager;
 import SantanderSAS.Model.SGTTPModel;
 import SantanderSAS.View.Login.LoginView;
 import SantanderSAS.View.SGTTPView;
