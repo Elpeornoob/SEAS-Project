@@ -1,7 +1,7 @@
 package SantanderSAS.Controller.Train;
 
 import SantanderSAS.Model.Domain.Train.Train;
-import SantanderSAS.Model.Repository.TrainRepository;
+import SantanderSAS.Model.Repository.Train.TrainRepository;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

@@ -1,4 +1,4 @@
-package SantanderSAS.Model.Repository;
+package SantanderSAS.Model.Repository.User;
 
 import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Shared.FileJsonAdapter.FileJsonAdapter;

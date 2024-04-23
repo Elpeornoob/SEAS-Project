@@ -6,11 +6,25 @@ public class Route {
     private String start;
     private String end;
     private int distance;
+    private int nameRuta;
+
+    public Route(){
+        
+    }
 
     public Route(String start, String end, int distance) {
         this.start = start;
         this.end = end;
         this.distance = distance;
+    }
+
+    
+
+    public Route(String start, String end, int distance, int nameRuta) {
+        this.start = start;
+        this.end = end;
+        this.distance = distance;
+        this.nameRuta = nameRuta;
     }
 
     public String getStart() {
@@ -49,4 +63,14 @@ public class Route {
     public int hashCode() {
         return Objects.hash(start, end);
     }
+
+    public int getNameRuta() {
+        return nameRuta;
+    }
+
+    public void setNameRuta(int nameRuta) {
+        this.nameRuta = nameRuta;
+    }
+
+    
 }

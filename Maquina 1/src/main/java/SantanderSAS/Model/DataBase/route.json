@@ -5,36 +5,43 @@
         {
           "start": "A",
           "end": "B",
-          "distance": 5
+          "distance": 5,
+          "nameRoute": "A"
+          
         },
         {
           "start": "A",
           "end": "C",
-          "distance": 10
+          "distance": 10,
+          "nameRoute": "B"
         }
       ],
       "B": [
         {
           "start": "B",
           "end": "A",
-          "distance": 5
+          "distance": 5,
+          "nameRoute": "C"
         },
         {
           "start": "B",
           "end": "C",
-          "distance": 15
+          "distance": 15,
+          "nameRoute": "D"
         }
       ],
       "C": [
         {
           "start": "C",
           "end": "A",
-          "distance": 10
+          "distance": 10,
+          "nameRoute": "E"
         },
         {
           "start": "C",
           "end": "B",
-          "distance": 15
+          "distance": 15,
+          "nameRoute": "F"
         }
       ]
     }

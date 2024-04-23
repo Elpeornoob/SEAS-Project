@@ -1,4 +1,4 @@
-package SantanderSAS.Model.Repository;
+package SantanderSAS.Model.Repository.User;
 
 import bryan.array.Array;
 

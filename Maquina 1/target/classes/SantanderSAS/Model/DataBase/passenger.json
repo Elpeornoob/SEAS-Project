@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Bryan",
+        "lastName": "Lizcano",
+        "phoneNumbers": [
+            "304132543", "3198755748"
+        ],
+        "typeIdentification": "Cedula de Ciudadania",
+        "currentAddres": "Cra 23 # 231 - 21",
+        "id": "1096065198",
+        "contactperson": {
+            "namecp": "Michael",
+            "lastNamecp": "Caicedo",
+            "phoneNumbers": [
+                "321456789", "322145789"
+            ]
+        }
+        
+    },
+    {
+        "name": "Andres",
+        "lastName": "Albarracin",
+        "phoneNumbers": [
+            "34855849038", "3218189811"
+        ],
+        "typeIdentification": "Cedula de Ciudadania",
+        "currentAddres": "Calle 12 # 32-34",
+        "id": "000518863",
+        "contactperson": {
+            "namecp": "Santiago",
+            "lastNamecp": "Rueda",
+            "phoneNumbers": [
+                "324555959", "3849476378"
+            ]
+        } 
+    }
+]

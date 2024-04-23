@@ -14,15 +14,14 @@ public class Ticket {
     private Passenger passenger;
     private String ticketCategory;
     private String idTrain;
-    private String place;
     private String ticketCost;
-    private ContactPerson contactPerson;
     private Baggage baggage;
     private int seat;
+    private ContactPerson contactPerson;
 
     public Ticket(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route,
-                  Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost,
-                  ContactPerson contactPerson, Baggage baggage, int seat) {
+                  Passenger passenger, String ticketCategory, String idTrain, String ticketCost,
+                  int seat) {
         this.id = id;
         this.dateHourbuy = dateHourbuy;
         this.dateHourDeparture = dateHourDeparture;
@@ -31,11 +30,10 @@ public class Ticket {
         this.passenger = passenger;
         this.ticketCategory = ticketCategory;
         this.idTrain = idTrain;
-        this.place = place;
         this.ticketCost = ticketCost;
-        this.contactPerson = contactPerson;
-        this.baggage = baggage;
+        this.baggage = passenger.getBaggage();
         this.seat = seat;
+        this.contactPerson = passenger.getContactPerson();
     }
 
     public String getId() {
@@ -102,14 +100,6 @@ public class Ticket {
         this.idTrain = idTrain;
     }
 
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
     public String getTicketCost() {
         return ticketCost;
     }
@@ -118,21 +108,10 @@ public class Ticket {
         this.ticketCost = ticketCost;
     }
 
-    public ContactPerson getContactPerson() {
-        return contactPerson;
-    }
-
-    public void setContactPerson(ContactPerson contactPerson) {
-        this.contactPerson = contactPerson;
-    }
-
     public Baggage getBaggage() {
         return baggage;
     }
 
-    public void setBaggage(Baggage baggage) {
-        this.baggage = baggage;
-    }
 
     public int getSeat() {
         return seat;
@@ -140,6 +119,14 @@ public class Ticket {
 
     public void setSeat(int seat) {
         this.seat = seat;
+    }
+
+    public ContactPerson getContactPerson() {
+        return contactPerson;
+    }
+
+    public static Ticket getNullTicket(){
+        return new Ticket("", "", "", "", new Route(), new Passenger(), "", "", "", -1);
     }
 
 }

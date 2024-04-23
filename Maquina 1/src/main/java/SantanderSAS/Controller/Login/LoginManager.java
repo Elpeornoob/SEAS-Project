@@ -1,7 +1,7 @@
 package SantanderSAS.Controller.Login;
 
 import SantanderSAS.Model.Domain.User;
-import SantanderSAS.Model.Repository.UserRepository;
+import SantanderSAS.Model.Repository.User.UserRepository;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

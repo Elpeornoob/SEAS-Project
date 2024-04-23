@@ -4,19 +4,19 @@ public class ContactPerson {
     private String name;
     private String lastName;
     private String[] phoneNumbers;
-
+    
     public ContactPerson(String name, String lastName, String[] phoneNumbers) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
     }
 
-    public String getName() {
+    public String getNaame() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNaame(String naame) {
+        this.name = naame;
     }
 
     public String getLastName() {
@@ -35,5 +35,5 @@ public class ContactPerson {
         this.phoneNumbers = phoneNumbers;
     }
 
-
+    
 }

@@ -1,4 +1,4 @@
-package SantanderSAS.Model.Repository;
+package SantanderSAS.Model.Repository.Train;
 
 import java.io.Serializable;
 

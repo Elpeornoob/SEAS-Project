@@ -2,7 +2,7 @@ package SantanderSAS.View.User;
 
 import SantanderSAS.Controller.User.UserManager;
 import SantanderSAS.Model.Domain.User;
-import SantanderSAS.Model.Repository.UserRepository;
+import SantanderSAS.Model.Repository.User.UserRepository;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

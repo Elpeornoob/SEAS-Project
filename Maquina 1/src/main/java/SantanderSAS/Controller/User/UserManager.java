@@ -1,7 +1,7 @@
 package SantanderSAS.Controller.User;
 
 import SantanderSAS.Model.Domain.User;
-import SantanderSAS.Model.Repository.UserRepository;
+import SantanderSAS.Model.Repository.User.UserRepository;
 
 public class UserManager {
     private final UserRepository userRepository;

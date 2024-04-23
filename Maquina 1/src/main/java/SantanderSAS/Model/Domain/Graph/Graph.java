@@ -1,7 +1,7 @@
 package SantanderSAS.Model.Domain.Graph;
 
 import SantanderSAS.Model.Domain.Route;
-import SantanderSAS.Model.Repository.RouteRepository;
+import SantanderSAS.Model.Repository.Route.RouteRepository;
 
 import java.util.*;
 

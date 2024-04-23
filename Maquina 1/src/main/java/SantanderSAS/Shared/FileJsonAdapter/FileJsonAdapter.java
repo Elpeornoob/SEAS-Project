@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class FileJsonAdapter<E> implements FileJsonInterface<E> {
     private static FileJsonAdapter<?> instance;
-    private final Object fileWriterLock;
+    private Object fileWriterLock;
 
     private FileJsonAdapter() {
         this.fileWriterLock = new Object();
@@ -39,6 +39,8 @@ public class FileJsonAdapter<E> implements FileJsonInterface<E> {
         E[] objArray = null;
         try {
             Gson gson = new GsonBuilder().create();
+            // BufferedReader bufferedReader = new BufferedReader(new FileReader(pathFile,
+            // StandardCharsets.UTF_8));
             BufferedReader bufferedReader = new BufferedReader(new FileReader(pathFile));
             objArray = gson.fromJson(bufferedReader, classOfT);
         } catch (RuntimeException | IOException e) {
@@ -74,5 +76,5 @@ public class FileJsonAdapter<E> implements FileJsonInterface<E> {
         }
         return successful;
     }
-}
+}    
 
