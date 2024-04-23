@@ -5,6 +5,7 @@ import SantanderSAS.Model.Domain.Route;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RouteRepository {
+public class RouteRepository implements Serializable{
     private Map<String, List<Route>> routes;
     private Gson gson;
 
