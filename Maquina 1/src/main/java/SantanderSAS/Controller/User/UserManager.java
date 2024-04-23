@@ -2,6 +2,7 @@ package SantanderSAS.Controller.User;
 
 import SantanderSAS.Model.Domain.User;
 import SantanderSAS.Model.Repository.User.UserRepository;
+import bryan.util.list.List;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -17,8 +18,8 @@ public class UserManager extends UnicastRemoteObject implements UserManagerSkele
         this.userRepository = userRepository;
     }
 
-    public void AddUser(User user) throws RemoteException {
-        userRepository.addUser(user);
+    public void AddUser(String ID, String username, String password, String name, String lastName, List<String> phoneNumbers, String permits) throws RemoteException {
+        userRepository.addUser(new User(ID, username, password, name, lastName, null, permits));
     }
 
     public void RemoveUser(String id) throws RemoteException {
@@ -28,10 +29,10 @@ public class UserManager extends UnicastRemoteObject implements UserManagerSkele
         }
     }
 
-    public void EditUser(User user) throws RemoteException {
-        User existingUser = userRepository.getUserById(user.getID());
+    public void EditUser(String id) throws RemoteException {
+        User existingUser = userRepository.getUserById(id);
         if (existingUser != null) {
-            userRepository.editUser(user);
+            userRepository.editUser(id);
         }
     }
 
