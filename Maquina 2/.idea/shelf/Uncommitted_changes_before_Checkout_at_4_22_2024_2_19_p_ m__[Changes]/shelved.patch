@@ -1,0 +1,188 @@
+Index: src/main/java/Modelo/TicketModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Modelo;\r\n\r\nimport SantanderSAS.Model.Domain.Route;\r\nimport SantanderSAS.Model.Domain.Passenger.ContactPerson;\r\nimport SantanderSAS.Model.Domain.Passenger.Passenger;\r\nimport SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;\r\n\r\npublic class TicketModel {\r\n    private String id;\r\n    private String dateHourbuy;\r\n    private String dateHourDeparture;\r\n    private String dateHourArrival;\r\n    private Route route;\r\n    private Passenger passenger;\r\n    private String ticketCategory;\r\n    private String idTrain;\r\n    private String place;\r\n    private String ticketCost;\r\n    private ContactPerson contactPerson;\r\n    private Baggage baggage;\r\n    private int seat;\r\n\r\n    public TicketModel(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route, Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost, ContactPerson contactPerson, Baggage baggage, int seat) {\r\n        this.id = id;\r\n        this.dateHourbuy = dateHourbuy;\r\n        this.dateHourDeparture = dateHourDeparture;\r\n        this.dateHourArrival = dateHourArrival;\r\n        this.route = route;\r\n        this.passenger = passenger;\r\n        this.ticketCategory = ticketCategory;\r\n        this.idTrain = idTrain;\r\n        this.place = place;\r\n        this.ticketCost = ticketCost;\r\n        this.contactPerson = contactPerson;\r\n        this.baggage = baggage;\r\n        this.seat = seat;\r\n    }\r\n\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public String getDateHourbuy() {\r\n        return dateHourbuy;\r\n    }\r\n\r\n    public void setDateHourbuy(String dateHourbuy) {\r\n        this.dateHourbuy = dateHourbuy;\r\n    }\r\n\r\n    public String getDateHourDeparture() {\r\n        return dateHourDeparture;\r\n    }\r\n\r\n    public void setDateHourDeparture(String dateHourDeparture) {\r\n        this.dateHourDeparture = dateHourDeparture;\r\n    }\r\n\r\n    public String getDateHourArrival() {\r\n        return dateHourArrival;\r\n    }\r\n\r\n    public void setDateHourArrival(String dateHourArrival) {\r\n        this.dateHourArrival = dateHourArrival;\r\n    }\r\n\r\n    public Route getRoute() {\r\n        return route;\r\n    }\r\n\r\n    public void setRoute(Route route) {\r\n        this.route = route;\r\n    }\r\n\r\n    public Passenger getPassenger() {\r\n        return passenger;\r\n    }\r\n\r\n    public void setPassenger(Passenger passenger) {\r\n        this.passenger = passenger;\r\n    }\r\n\r\n    public String getTicketCategory() {\r\n        return ticketCategory;\r\n    }\r\n\r\n    public void setTicketCategory(String ticketCategory) {\r\n        this.ticketCategory = ticketCategory;\r\n    }\r\n\r\n    public String getIdTrain() {\r\n        return idTrain;\r\n    }\r\n\r\n    public void setIdTrain(String idTrain) {\r\n        this.idTrain = idTrain;\r\n    }\r\n\r\n    public String getPlace() {\r\n        return place;\r\n    }\r\n\r\n    public void setPlace(String place) {\r\n        this.place = place;\r\n    }\r\n\r\n    public String getTicketCost() {\r\n        return ticketCost;\r\n    }\r\n\r\n    public void setTicketCost(String ticketCost) {\r\n        this.ticketCost = ticketCost;\r\n    }\r\n\r\n    public ContactPerson getContactPerson() {\r\n        return contactPerson;\r\n    }\r\n\r\n    public void setContactPerson(ContactPerson contactPerson) {\r\n        this.contactPerson = contactPerson;\r\n    }\r\n\r\n    public Baggage getBaggage() {\r\n        return baggage;\r\n    }\r\n\r\n    public void setBaggage(Baggage baggage) {\r\n        this.baggage = baggage;\r\n    }\r\n\r\n    public int getSeat() {\r\n        return seat;\r\n    }\r\n\r\n    public void setSeat(int seat) {\r\n        this.seat = seat;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Modelo/TicketModel.java b/src/main/java/Modelo/TicketModel.java
+--- a/src/main/java/Modelo/TicketModel.java	(revision abe0e01ed6627b39e8991fff796b12b0fe53c358)
++++ b/src/main/java/Modelo/TicketModel.java	(date 1713762221473)
+@@ -4,6 +4,7 @@
+ import SantanderSAS.Model.Domain.Passenger.ContactPerson;
+ import SantanderSAS.Model.Domain.Passenger.Passenger;
+ import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
++import com.google.gson.Gson;
+ 
+ public class TicketModel {
+     private String id;
+@@ -139,4 +140,9 @@
+     public void setSeat(int seat) {
+         this.seat = seat;
+     }
+-}
+\ No newline at end of file
++
++    public String toJson() {
++        Gson gson = new Gson();
++        return gson.toJson(this);
++    }
++}
+Index: src/main/java/Vista/TicketView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Vista;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class TicketView {\r\n    private JFrame frame;\r\n    private JTextField idField;\r\n    // Add more fields for each attribute in your TicketModel\r\n\r\n    public TicketView() {\r\n        frame = new JFrame(\"Ticket Information\");\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setSize(400, 400);\r\n\r\n        JPanel panel = new JPanel();\r\n        frame.add(panel);\r\n\r\n        panel.setLayout(null);\r\n\r\n        JLabel idLabel = new JLabel(\"ID\");\r\n        idLabel.setBounds(10, 10, 80, 25);\r\n        panel.add(idLabel);\r\n\r\n        idField = new JTextField(20);\r\n        idField.setBounds(100, 10, 160, 25);\r\n        panel.add(idField);\r\n\r\n        // Add more labels and text fields for each attribute in your TicketModel\r\n\r\n        JButton submitButton = new JButton(\"Submit\");\r\n        submitButton.setBounds(10, 80, 80, 25);\r\n        panel.add(submitButton);\r\n\r\n        // Add an action listener to your button to handle the click event\r\n        submitButton.addActionListener(e -> {\r\n            // Call your controller methods here to handle the data\r\n        });\r\n\r\n        frame.setVisible(true);\r\n    }\r\n\r\n    public String getId() {\r\n        return idField.getText();\r\n    }\r\n\r\n    // Add more getter methods for each attribute in your TicketModel\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Vista/TicketView.java b/src/main/java/Vista/TicketView.java
+--- a/src/main/java/Vista/TicketView.java	(revision abe0e01ed6627b39e8991fff796b12b0fe53c358)
++++ b/src/main/java/Vista/TicketView.java	(date 1713813452907)
+@@ -1,10 +1,13 @@
+ package Vista;
+ 
++import Controller.TicketController;
+ import javax.swing.*;
+ 
+ public class TicketView {
+     private JFrame frame;
+     private JTextField idField;
++    private JTextField passengerNameField;
++    private JTextField passengerIdField;
+     // Add more fields for each attribute in your TicketModel
+ 
+     public TicketView() {
+@@ -25,13 +28,26 @@
+         idField.setBounds(100, 10, 160, 25);
+         panel.add(idField);
+ 
+-        // Add more labels and text fields for each attribute in your TicketModel
++        JLabel passengerNameLabel = new JLabel("Passenger Name");
++        passengerNameLabel.setBounds(10, 40, 80, 25);
++        panel.add(passengerNameLabel);
++
++        passengerNameField = new JTextField(20);
++        passengerNameField.setBounds(100, 40, 160, 25);
++        panel.add(passengerNameField);
++
++        JLabel passengerIdLabel = new JLabel("Passenger ID");
++        passengerIdLabel.setBounds(10, 70, 80, 25);
++        panel.add(passengerIdLabel);
++
++        passengerIdField = new JTextField(20);
++        passengerIdField.setBounds(100, 70, 160, 25);
++        panel.add(passengerIdField);
+ 
+         JButton submitButton = new JButton("Submit");
+-        submitButton.setBounds(10, 80, 80, 25);
++        submitButton.setBounds(10, 100, 80, 25);
+         panel.add(submitButton);
+ 
+-        // Add an action listener to your button to handle the click event
+         submitButton.addActionListener(e -> {
+             // Call your controller methods here to handle the data
+         });
+@@ -43,5 +59,17 @@
+         return idField.getText();
+     }
+ 
+-    // Add more getter methods for each attribute in your TicketModel
++    public String getPassengerName() {
++        return passengerNameField.getText();
++    }
++
++    public String getPassengerId() {
++        return passengerIdField.getText();
++    }
++
++    public void addPurchaseButton(TicketController controller) {
++        JButton purchaseButton = new JButton("Comprar");
++        purchaseButton.addActionListener(e -> controller.purchaseTicket());
++        // Añade el botón a tu panel o donde quieras que aparezca
++    }
+ }
+\ No newline at end of file
+Index: src/main/java/Controller/TicketController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Controller;\r\n\r\nimport Modelo.TicketModel;\r\nimport Vista.TicketView;\r\n\r\npublic class TicketController {\r\n    private TicketModel model;\r\n    private TicketView view;\r\n\r\n    public TicketController(TicketModel model, TicketView view){\r\n        this.model = model;\r\n        this.view = view;\r\n    }\r\n\r\n    public void submitTicket() {\r\n        String id = view.getId();\r\n        model.setId(id);\r\n\r\n        // Add more code here to handle the rest of the attributes\r\n\r\n        // Call your server here to handle the other files like Tren, Asiento, Ruta\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Controller/TicketController.java b/src/main/java/Controller/TicketController.java
+--- a/src/main/java/Controller/TicketController.java	(revision abe0e01ed6627b39e8991fff796b12b0fe53c358)
++++ b/src/main/java/Controller/TicketController.java	(date 1713813452917)
+@@ -1,7 +1,14 @@
+ package Controller;
+ 
+ import Modelo.TicketModel;
++import Modelo.Passenger;
+ import Vista.TicketView;
++import SantanderSAS.Model.Domain.Route;
++import SantanderSAS.Model.Domain.Passenger.ContactPerson;
++import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
++
++import java.io.FileWriter;
++import java.io.IOException;
+ 
+ public class TicketController {
+     private TicketModel model;
+@@ -15,9 +22,31 @@
+     public void submitTicket() {
+         String id = view.getId();
+         model.setId(id);
++    }
++
++    public void purchaseTicket() {
++    // Obtain the data from the view
++    String id = view.getId();
++    String passengerName = view.getPassengerName();
++    String passengerId = view.getPassengerId();
+ 
+-        // Add more code here to handle the rest of the attributes
++    // Create a new Passenger with the data
++    SantanderSAS.Model.Domain.Passenger.Passenger passenger = new SantanderSAS.Model.Domain.Passenger.Passenger(passengerName, passengerId);
+ 
+-        // Call your server here to handle the other files like Tren, Asiento, Ruta
++    // Set the passenger in the model
++    model.setPassenger(passenger);
++
++    // Save the ticket (this will depend on how you're handling data persistence)
++    saveTicket();
++}
++
++    private void saveTicket(){
++        // Implementa la lógica para guardar el ticket aquí
++        // Por ejemplo, podrías guardar el ticket en formato JSON en un archivo:
++        try (FileWriter file = new FileWriter("tickets.json")) {
++            file.write(model.toJson());
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
+     }
+ }
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>TicketBuySGTTP</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>21</maven.compiler.source>\r\n        <maven.compiler.target>21</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision abe0e01ed6627b39e8991fff796b12b0fe53c358)
++++ b/pom.xml	(date 1713761408556)
+@@ -13,5 +13,11 @@
+         <maven.compiler.target>21</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+-
++    <dependencies>
++        <dependency>
++            <groupId>com.google.code.gson</groupId>
++            <artifactId>gson</artifactId>
++            <version>2.10.1</version>
++        </dependency>
++    </dependencies>
+ </project>
+\ No newline at end of file

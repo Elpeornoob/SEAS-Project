@@ -6,15 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ProyectoSESAS (2)" />
-        <module name="TicketValidator" />
-        <module name="TicketBuy" />
+        <module name="TicketBuySGTTP" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Admin" target="21" />
-      <module name="ProyectoSESAS" target="21" />
-      <module name="TicketBuySGTTP" target="21" />
-    </bytecodeTargetLevel>
   </component>
 </project>
