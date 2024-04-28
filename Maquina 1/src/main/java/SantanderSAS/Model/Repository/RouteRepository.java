@@ -52,6 +52,18 @@ public class RouteRepository {
         }
     }
 
+    public Route getRoute(String start, String end) {
+        List<Route> routesFromStart = routes.get(start);
+        if (routesFromStart != null) {
+            for (Route route : routesFromStart) {
+                if (route.getEnd().equals(end)) {
+                    return route;
+                }
+            }
+        }
+        return null;
+    }
+
     public List<Route> getRoutesFrom(String start) {
         return routes.get(start);
     }

@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package SantanderSAS.Controller;
 
-/**
- *
- * @author Bryan
- */
-public class TicketValidator {
+import SantanderSAS.Model.Domain.Ticket.Ticket;
+import SantanderSAS.Model.Repository.TicketRepository;
+
+public class TicketValidator implements TicketValidatorSkeleton{
+    private TicketRepository ticketRepository;
+
+    @Override
+    public boolean validateTicket(String id) {
+        return ticketRepository.validateTicket(id);
+    }
+
+    @Override
+    public Ticket getTicket(String id) {
+        return ticketRepository.getTicket(id);
+    }
     
 }

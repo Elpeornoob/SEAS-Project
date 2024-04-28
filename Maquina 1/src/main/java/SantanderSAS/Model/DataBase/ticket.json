@@ -1,0 +1,16 @@
+[
+    {
+        "id": "123",
+        "datehoutbuy": "12/02/2024 20:00",
+        "datehourdeparture": "13/02/2024 08:00",
+        "datehourarrival": "13/02/2024 12:00",
+        "route":  "A - B",
+        "passenger": "10960965198",
+        "ticketcategory": "premiun",
+        "idtrain":  1,
+        "place": "Giron",
+        "ticketcost": 20000,
+        "baggageid": "10960965198",
+        "seat": 1
+    }
+]

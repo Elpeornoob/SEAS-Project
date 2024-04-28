@@ -1,9 +1,7 @@
 package SantanderSAS.Model.Domain.Ticket;
 
 import SantanderSAS.Model.Domain.Route;
-import SantanderSAS.Model.Domain.Passenger.ContactPerson;
 import SantanderSAS.Model.Domain.Passenger.Passenger;
-import SantanderSAS.Model.Domain.Passenger.Baggage.Baggage;
 
 public class Ticket {
     private String id;
@@ -16,13 +14,12 @@ public class Ticket {
     private String idTrain;
     private String place;
     private String ticketCost;
-    private ContactPerson contactPerson;
-    private Baggage baggage;
+    private String baggage;
     private int seat;
 
     public Ticket(String id, String dateHourbuy, String dateHourDeparture, String dateHourArrival, Route route,
             Passenger passenger, String ticketCategory, String idTrain, String place, String ticketCost,
-            ContactPerson contactPerson, Baggage baggage, int seat) {
+            String baggage, int seat) {
         this.id = id;
         this.dateHourbuy = dateHourbuy;
         this.dateHourDeparture = dateHourDeparture;
@@ -33,7 +30,6 @@ public class Ticket {
         this.idTrain = idTrain;
         this.place = place;
         this.ticketCost = ticketCost;
-        this.contactPerson = contactPerson;
         this.baggage = baggage;
         this.seat = seat;
     }
@@ -118,19 +114,11 @@ public class Ticket {
         this.ticketCost = ticketCost;
     }
 
-    public ContactPerson getContactPerson() {
-        return contactPerson;
-    }
-
-    public void setContactPerson(ContactPerson contactPerson) {
-        this.contactPerson = contactPerson;
-    }
-
-    public Baggage getBaggage() {
+    public String getBaggage() {
         return baggage;
     }
 
-    public void setBaggage(Baggage baggage) {
+    public void setBaggage(String baggage) {
         this.baggage = baggage;
     }
 

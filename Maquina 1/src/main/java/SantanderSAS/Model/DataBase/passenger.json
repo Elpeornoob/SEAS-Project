@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1096054198",
+        "name": "Bryan",
+        "lastname": "Lizcano",
+        "phoneNumber": "3204132554",
+        "typeidentification": "CC",
+        "currentaaddress": "Calle 45 23 45"
+    },
+    {
+        "id": "1234567986",
+        "name": "Bryan",
+        "lastname": "Lizcano",
+        "phoneNumber": "3204132554",
+        "typeidentification": "TI",
+        "currentaaddress": "Calle 45 23 45"
+    }
+]

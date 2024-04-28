@@ -1,14 +1,16 @@
 package SantanderSAS.Model.Domain.Passenger;
 
 public class Passenger {
+    private String id;
     private String name;
     private String lastName;
-    private String[] phoneNumbers;
+    private String phoneNumbers;
     private TypeIdentification typeIdentification;
     private String currentAddress;
     
-    public Passenger(String name, String lastName, String[] phoneNumbers, TypeIdentification typeIdentification,
+    public Passenger(String id, String name, String lastName, String phoneNumbers, TypeIdentification typeIdentification,
             String currentAddress) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
@@ -32,11 +34,11 @@ public class Passenger {
         this.lastName = lastName;
     }
 
-    public String[] getPhoneNumbers() {
+    public String getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public void setPhoneNumbers(String[] phoneNumbers) {
+    public void setPhoneNumbers(String phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 
@@ -54,6 +56,14 @@ public class Passenger {
 
     public void setCurrentAddress(String currentAddress) {
         this.currentAddress = currentAddress;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     
